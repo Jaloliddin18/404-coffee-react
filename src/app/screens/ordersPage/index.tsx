@@ -104,7 +104,7 @@ export default function OrdersPage() {
                 <div className={"order-user-icon-box"}>
                   <img
                     src={
-                      authMember?.memberType === MemberType.RESTAURANT
+                      authMember?.memberType === MemberType.COFFEESHOP
                         ? "/icons/restaurant.svg"
                         : "/icons/user-badge.svg"
                     }

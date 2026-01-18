@@ -32,13 +32,13 @@ const chosenProductRetriever = createSelector(
   retrieveChosenProduct,
   (chosenProduct) => ({
     chosenProduct,
-  })
+  }),
 );
 const restaurantRetriever = createSelector(
   retrieveRestaurant,
   (restaurant) => ({
     restaurant,
-  })
+  }),
 );
 
 interface ChosenProductProps {
@@ -60,9 +60,9 @@ export default function ChosenProduct(props: ChosenProductProps) {
 
     const member = new MemberService();
     member
-      .getRestaurant()
-      .then((data) => setRestaurant(data))
-      .catch((err) => console.log(err));
+      .getCoffeeShop()
+      .then((data: Member) => setRestaurant(data))
+      .catch((err: any) => console.log(err));
   }, []);
 
   if (!chosenProduct) return null;

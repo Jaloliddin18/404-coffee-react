@@ -1,28 +1,21 @@
 export enum ProductSize {
-    SMALL = "SMALL",
-    NORMAL = "NORMAL",
-    LARGE = "LARGE",
-    SET = "SET",
-}
-
-export enum ProductVolume {
-    HALF = "HALF",
-    ONE = 1,
-    ONE_POINT_TWO = 1.2,
-    ONE_POINT_FIVE = 1.5,
-    TW0 = 2,
+  SMALL = "SMALL",
+  MEDIUM = "MEDIUM",
+  LARGE = "LARGE",
+  SET = "SET",
+  REGULAR = "REGULAR",
 }
 
 export enum ProductStatus {
-    PAUSE = "PAUSE",
-    PROCESS = "PROCESS",
-    DELETE = "DELETE",
+  PAUSE = "PAUSE",
+  PROCESS = "PROCESS",
+  DELETE = "DELETE",
 }
 
 export enum ProductCollection {
-    DISH = "DISH",
-    SALAD = "SALAD",
-    DESSERT = "DESSERT",
-    DRINK = "DRINK",
-    OTHER = "OTHER",
+  HOT_COFFEE = "HOT_COFFEE",
+  ICED_COFFEE = "ICED_COFFEE",
+  DESSERT = "DESSERT",
+  SALAD = "SALAD",
+  OTHER = "OTHER",
 }

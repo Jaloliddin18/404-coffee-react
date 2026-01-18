@@ -24,9 +24,8 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 export default function HomePage() {
   // Selector: Store => Data
-  const { setPopularDishes, setNewDishes, setTopUsers } = actionDispatch(
-    useDispatch()
-  );
+  const { setPopularDishes, setNewDishes, setTopUsers } =
+    actionDispatch(useDispatch());
 
   useEffect(() => {
     // Backend server data request => Data
@@ -37,7 +36,7 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "productViews",
-        productCollection: ProductCollection.DISH,
+        // Removed productCollection filter to get both HOT_COFFEE and ICED_COFFEE
       })
       .then((data) => {
         console.log("data passed here", data);

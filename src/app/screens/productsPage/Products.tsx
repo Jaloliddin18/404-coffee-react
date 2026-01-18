@@ -42,7 +42,7 @@ export default function Products(props: ProductsProps) {
     page: 1,
     limit: 8,
     order: "createdAt",
-    productCollection: ProductCollection.DISH,
+    productCollection: ProductCollection.ICED_COFFEE,
     search: "",
   });
   const [searchText, setSearchText] = useState<string>("");
@@ -172,44 +172,32 @@ export default function Products(props: ProductsProps) {
                 <Button
                   variant="contained"
                   color={
-                    productSearch.productCollection === ProductCollection.DISH
+                    productSearch.productCollection ===
+                    ProductCollection.ICED_COFFEE
                       ? "primary"
                       : "secondary"
                   }
                   className="category-btn"
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.DISH)
+                    searchCollectionHandler(ProductCollection.ICED_COFFEE)
                   }
                 >
-                  Dish
+                  Iced Coffee
                 </Button>
                 <Button
                   variant="contained"
                   color={
-                    productSearch.productCollection === ProductCollection.SALAD
+                    productSearch.productCollection ===
+                    ProductCollection.HOT_COFFEE
                       ? "primary"
                       : "secondary"
                   }
                   className="category-btn"
                   onClick={() =>
-                    searchCollectionHandler(ProductCollection.SALAD)
+                    searchCollectionHandler(ProductCollection.HOT_COFFEE)
                   }
                 >
-                  Salad
-                </Button>
-                <Button
-                  variant="contained"
-                  color={
-                    productSearch.productCollection === ProductCollection.DRINK
-                      ? "primary"
-                      : "secondary"
-                  }
-                  className="category-btn"
-                  onClick={() =>
-                    searchCollectionHandler(ProductCollection.DRINK)
-                  }
-                >
-                  Drink
+                  Hot Coffee
                 </Button>
                 <Button
                   variant="contained"
@@ -225,6 +213,20 @@ export default function Products(props: ProductsProps) {
                   }
                 >
                   Dessert
+                </Button>
+                <Button
+                  variant="contained"
+                  color={
+                    productSearch.productCollection === ProductCollection.SALAD
+                      ? "primary"
+                      : "secondary"
+                  }
+                  className="category-btn"
+                  onClick={() =>
+                    searchCollectionHandler(ProductCollection.SALAD)
+                  }
+                >
+                  Salad
                 </Button>
                 <Button
                   variant="contained"
@@ -247,10 +249,7 @@ export default function Products(props: ProductsProps) {
               {products.length !== 0 ? (
                 products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  const sizeVolume =
-                    product.productCollection === ProductCollection.DRINK
-                      ? product.productVolume + " litre"
-                      : product.productSize + " size";
+                  const sizeVolume = product.productSize + " size";
                   return (
                     <Stack
                       key={product._id}
