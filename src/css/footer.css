@@ -1,11 +1,172 @@
+/* Footer Section */
+.footer-section {
+  width: 100%;
+  background: linear-gradient(135deg, #442808 0%, #603809 100%);
+  padding: 80px 0 40px 0;
+}
+
+.footer-section .footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.footer-section .footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  gap: 60px;
+}
+
+.footer-section .footer-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section .footer-brand-name {
+  font-family: "Clicker Script", cursive;
+  font-size: 54px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-section .footer-description {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.footer-section .social-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.footer-section .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section .social-link:hover {
+  color: #f9c06a;
+  transform: scale(1.1);
+}
+
+.footer-section .footer-section-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section .footer-section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-section .footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-section .footer-links-list li a {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-section .footer-links-list li a:hover {
+  color: #f9c06a;
+  margin-left: 10px;
+}
+
+.footer-section .footer-section-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section .contact-item {
+  margin-bottom: 12px;
+}
+
+.footer-section .contact-label {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f9c06a;
+  margin-bottom: 4px;
+}
+
+.footer-section .contact-value {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 24px;
+}
+
+.footer-section .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  text-align: center;
+}
+
+.footer-section .footer-copyright {
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.brand-name-footer {
+  font-family: "Clicker Script", cursive;
+  font-size: 54px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
 .foot-desc-txt {
   margin-top: 22px;
-  font-family: "Poppins";
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 34px;
-  color: #e3c08d;
+  font-size: 14px;
+  line-height: 22px;
+  color: #fff;
+}
+
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
 }
 
 .sns-context {
@@ -17,33 +178,49 @@
 }
 
 .foot-category-title {
-  width: 106px;
-  font-family: "Poppins";
+  font-family: "Playfair Display", serif;
   font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 34px;
-  color: #c5c8c9;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 35px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .foot-category-link {
   margin-top: 20px;
-  height: 170px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 170px;
-  font-family: "Poppins";
+  gap: 10px;
+  font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 34px;
+  font-size: 18px;
+  line-height: 42px;
+}
+
+.foot-contact-info {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Playfair Display", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+  color: #fff;
 }
 
 .foot-category-link a {
-  color: #e3c08d;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.foot-category-link a:hover {
+  opacity: 0.7;
 }
 
 .find-us {

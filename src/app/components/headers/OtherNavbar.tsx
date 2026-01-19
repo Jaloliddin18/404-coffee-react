@@ -44,58 +44,67 @@ export default function OtherNavbar(props: OtherNavbarProps) {
   } = props;
   const { authMember } = useGlobals();
   return (
-    <div className="other-navbar">
+    <div
+      className="other-navbar"
+      style={{
+        backgroundImage: "url('/img/coffee-hero-bg.jpg')",
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <img className="brand-logo" src="/icons/burak.svg" />
+              <div className="brand-name">Bean Scene</div>
             </NavLink>
           </Box>
           <Stack className="links">
             <Box className={"hover-line"}>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" activeClassName={"underline"}>
+                Home
+              </NavLink>
             </Box>
             <Box className={"hover-line"}>
               <NavLink to="/products" activeClassName={"underline"}>
-                Products
+                Menu
               </NavLink>
             </Box>
-            {authMember ? (
-              <Box className={"hover-line"}>
-                <NavLink to="/orders" activeClassName={"underline"}>
-                  Orders
-                </NavLink>
-              </Box>
-            ) : null}
-            {authMember ? (
-              <Box className={"hover-line"}>
-                <NavLink to="/member-page" activeClassName={"underline"}>
-                  My Page
-                </NavLink>
-              </Box>
-            ) : null}
             <Box className={"hover-line"}>
               <NavLink to="/help" activeClassName={"underline"}>
                 Help
               </NavLink>
             </Box>
-            {/* Basket */}
-            <Basket
-              cartItems={cartItems}
-              onAdd={onAdd}
-              onRemove={onRemove}
-              onDelete={onDelete}
-              onDeleteAll={onDeleteAll}
-            />
+            {!authMember ? (
+              <Box className="sign-in-link">
+                <span onClick={() => setLoginOpen(true)}>Sign In</span>
+              </Box>
+            ) : (
+              <Box className={"hover-line"}>
+                <NavLink to="/orders" activeClassName={"underline"}>
+                  Orders
+                </NavLink>
+              </Box>
+            )}
+            {/* Basket - visible only when logged in */}
+            {authMember && (
+              <Basket
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+                onDelete={onDelete}
+                onDeleteAll={onDeleteAll}
+              />
+            )}
             {!authMember ? (
               <Box>
                 <Button
                   variant="contained"
-                  className="login-button"
-                  onClick={() => setLoginOpen(true)}
+                  className="signup-btn"
+                  onClick={() => setSignupOpen(true)}
                 >
-                  Login
+                  SingUp
                 </Button>
               </Box>
             ) : (
@@ -108,6 +117,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                 }
                 aria-haspopup={"true"}
                 onClick={handleLogoutClick}
+                alt="User profile"
               />
             )}
             <Menu

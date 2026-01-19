@@ -1,89 +1,148 @@
 import React from "react";
 import { Box, Container, Stack } from "@mui/material";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const Footers = styled.div`
-  width: 100%;
-  height: 590px;
-  display: flex;
-  background: #343434;
-  background-size: cover;
-`;
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
-  const authMember = null;
-
   return (
-    <Footers>
-      <Container>
-        <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
-          <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+    <footer className="footer-section" style={{ position: "relative" }}>
+      <img
+        src="/img/footer-bg.jpg"
+        alt=""
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 0,
+          opacity: 0.3,
+        }}
+      />
+      <img
+        src="/img/footer-coffee-cup-left.png"
+        alt=""
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          transform: "translateY(-50%)",
+          zIndex: 2,
+        }}
+      />
+      <img
+        src="/img/footer-coffee-cup-right.png"
+        alt=""
+        style={{
+          position: "absolute",
+          right: 0,
+          top: 0,
+          transform: "translateY(-50%)",
+          zIndex: 2,
+        }}
+      />
+      <Container sx={{ position: "relative", zIndex: 1 }}>
+        <Stack className="footer-content">
+          <Box className="footer-grid">
+            {/* Brand Section */}
+            <Box className="footer-brand">
+              <Box className="footer-brand-name">Bean Scene</Box>
+              <Box className="footer-description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </Box>
+              <Box className="social-icons">
+                <a href="#" aria-label="Facebook" className="social-link">
+                  <FacebookIcon />
+                </a>
+                <a href="#" aria-label="Instagram" className="social-link">
+                  <InstagramIcon />
+                </a>
+                <a href="#" aria-label="Twitter" className="social-link">
+                  <TwitterIcon />
+                </a>
+                <a href="#" aria-label="LinkedIn" className="social-link">
+                  <LinkedInIcon />
+                </a>
+              </Box>
             </Box>
-            <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+
+            {/* About Section */}
+            <Box className="footer-section-links">
+              <Box className="footer-section-title">About</Box>
+              <ul className="footer-links-list">
+                <li>
+                  <a href="/">Menu</a>
+                </li>
+                <li>
+                  <a href="/">Features</a>
+                </li>
+                <li>
+                  <a href="/">News & Blogs</a>
+                </li>
+                <li>
+                  <a href="/">Help & Supports</a>
+                </li>
+              </ul>
             </Box>
-            <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
+
+            {/* Company Section */}
+            <Box className="footer-section-links">
+              <Box className="footer-section-title">Company</Box>
+              <ul className="footer-links-list">
+                <li>
+                  <a href="/">How we work</a>
+                </li>
+                <li>
+                  <a href="/">Terms of service</a>
+                </li>
+                <li>
+                  <a href="/">Pricing</a>
+                </li>
+                <li>
+                  <a href="/">FAQ</a>
+                </li>
+              </ul>
             </Box>
-          </Stack>
-          <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
-            <Stack>
-              <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
-                <Box className={"foot-category-link"}>
-                  <Link to="/">Home</Link>
-                  <Link to="/products">Products</Link>
-                  {authMember && <Link to="/orders">Orders</Link>}
-                  <Link to="/help">Help</Link>
+
+            {/* Contact Section */}
+            <Box className="footer-section-contact">
+              <Box className="footer-section-title">Contact Us</Box>
+              <Box className="contact-item">
+                <Box className="contact-label">Address:</Box>
+                <Box className="contact-value">
+                  Akshya Nagar 1st Block 1st Cross, Rammurthy nagar,
+                  Bangalore-560016
                 </Box>
               </Box>
-            </Stack>
-            <Stack sx={{ ml: "100px" }}>
-              <Box>
-                <Box className={"foot-category-title"}>Find us</Box>
-                <Box
-                  flexDirection={"column"}
-                  sx={{ mt: "20px" }}
-                  className={"foot-category-link"}
-                  justifyContent={"space-between"}
-                >
-                  <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
-                  </Box>
-                </Box>
+              <Box className="contact-item">
+                <Box className="contact-label">Phone:</Box>
+                <Box className="contact-value">+1 202-918-2132</Box>
               </Box>
-            </Stack>
-          </Stack>
-        </Stack>
-        <Stack
-          style={{ border: "1px solid #C5C8C9", width: "100%", opacity: "0.2" }}
-          sx={{ mt: "80px" }}
-        ></Stack>
-        <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+              <Box className="contact-item">
+                <Box className="contact-label">Email:</Box>
+                <Box className="contact-value">beanscene@mail.com</Box>
+              </Box>
+              <Box className="contact-item">
+                <Box className="contact-label">Website:</Box>
+                <Box className="contact-value">www.beanscene.com</Box>
+              </Box>
+            </Box>
+          </Box>
+
+          {/* Footer Bottom */}
+          <Box className="footer-bottom">
+            <Box className="footer-copyright">
+              © 2024 Bean Scene Coffee. All rights reserved.
+            </Box>
+          </Box>
         </Stack>
       </Container>
-    </Footers>
+    </footer>
   );
 }

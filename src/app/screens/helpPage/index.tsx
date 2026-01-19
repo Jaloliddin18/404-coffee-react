@@ -33,9 +33,10 @@ export default function HelpPage() {
                 aria-label="lab API tabs example"
                 className={"table_list"}
               >
-                <Tab label="TERMS" value={"1"} />
-                <Tab label="FAQ" value={"2"} />
-                <Tab label="CONTACT" value={"3"} />
+                <Tab label="ABOUT US" value={"1"} />
+                <Tab label="TERMS" value={"2"} />
+                <Tab label="FAQ" value={"3"} />
+                <Tab label="CONTACT" value={"4"} />
               </Tabs>
             </Box>
           </Box>
@@ -44,13 +45,57 @@ export default function HelpPage() {
               <TabPanel value={"1"}>
                 <Stack className={"rules-box"}>
                   <Box className={"rules-frame"}>
+                    <h2 style={{ color: "#603809", marginBottom: "20px" }}>About Bean Scene</h2>
+                    <p style={{ marginBottom: "15px" }}>
+                      Bean Scene is a premium coffee shop dedicated to providing you with the highest quality coffee experience.
+                      We believe that every cup of coffee should be exceptional, carefully selected from the finest beans around the world.
+                    </p>
+                    <h3 style={{ color: "#603809", marginTop: "30px", marginBottom: "15px" }}>Our Mission</h3>
+                    <p style={{ marginBottom: "15px" }}>
+                      To deliver exceptional coffee that enriches our customers' daily lives and supports sustainable coffee farming practices.
+                      We are committed to quality, innovation, and creating a welcoming community for all coffee enthusiasts.
+                    </p>
+                    <h3 style={{ color: "#603809", marginTop: "30px", marginBottom: "15px" }}>Why Choose Bean Scene?</h3>
+                    <ul style={{ marginBottom: "15px", paddingLeft: "20px" }}>
+                      <li style={{ marginBottom: "10px" }}>
+                        <strong>Supreme Beans:</strong> We source the finest coffee beans from premium coffee-growing regions worldwide
+                      </li>
+                      <li style={{ marginBottom: "10px" }}>
+                        <strong>High Quality:</strong> Our expert baristas ensure every cup is crafted to perfection
+                      </li>
+                      <li style={{ marginBottom: "10px" }}>
+                        <strong>Extraordinary Taste:</strong> Each blend offers a unique flavor experience you won't find anywhere else
+                      </li>
+                      <li style={{ marginBottom: "10px" }}>
+                        <strong>Affordable Price:</strong> Premium quality doesn't have to be expensive
+                      </li>
+                    </ul>
+                    <h3 style={{ color: "#603809", marginTop: "30px", marginBottom: "15px" }}>Contact Information</h3>
+                    <p style={{ marginBottom: "10px" }}>
+                      <strong>Address:</strong> Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016
+                    </p>
+                    <p style={{ marginBottom: "10px" }}>
+                      <strong>Phone:</strong> +1 202-918-2132
+                    </p>
+                    <p style={{ marginBottom: "10px" }}>
+                      <strong>Email:</strong> beanscene@mail.com
+                    </p>
+                    <p style={{ marginBottom: "10px" }}>
+                      <strong>Website:</strong> www.beanscene.com
+                    </p>
+                  </Box>
+                </Stack>
+              </TabPanel>
+              <TabPanel value={"2"}>
+                <Stack className={"rules-box"}>
+                  <Box className={"rules-frame"}>
                     {terms.map((value, number) => {
                       return <p key={number}>{value}</p>;
                     })}
                   </Box>
                 </Stack>
               </TabPanel>
-              <TabPanel value={"2"}>
+              <TabPanel value={"3"}>
                 <Stack className={"accordion-menu"}>
                   {faq.map((value, number) => {
                     return (
@@ -70,7 +115,7 @@ export default function HelpPage() {
                   })}
                 </Stack>
               </TabPanel>
-              <TabPanel value={"3"}>
+              <TabPanel value={"4"}>
                 <Stack className={"admin-letter-box"}>
                   <Stack className={"admin-letter-container"}>
                     <Box className={"admin-letter-frame"}>

@@ -1,227 +1,726 @@
 .homepage {
   width: 100%;
   height: auto;
+  background: #fffefc;
 }
 
-/* Statistics */
-.homepage .static-frame {
+/* Discover Section */
+.discover-section {
   width: 100%;
-  height: 236px;
-  background: #343434;
+  padding: 80px 0;
+  background: #fffefc;
 }
 
-.homepage .static-frame .info {
-  height: 100%;
+.discover-section .discover-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 80px;
 }
 
-.homepage .static-frame .info .static-box {
-  width: 200px;
-  height: 116px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.discover-section .discover-text {
+  flex: 1;
+  max-width: 585px;
 }
 
-.homepage .static-frame .info .static-box .static-num {
-  text-align: center;
-  font-family: "Poppins";
+.discover-section .discover-title {
+  font-family: "Playfair Display", serif;
   font-size: 54px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 80px;
-  color: #d7b686;
-}
-
-.homepage .static-frame .info .static-box .static-text {
-  text-align: center;
-  font-family: "Poppins";
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px;
-  color: #d7b586;
-}
-
-/** Popular Dishes **/
-.homepage .popular-dishes-frame {
-  width: 100%;
-  height: 580px;
-  display: flex;
-  background: #f8f8f8;
-}
-
-.homepage .popular-dishes-frame .popular-section {
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .popular-dishes-frame .popular-section .category-title {
-  text-align: center;
-  font-family: "Roboto Serif";
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 1.44px;
-  color: #000;
-}
-
-.homepage .popular-dishes-frame .popular-section .cards-frame {
-  width: 100%;
-  margin-top: 43px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .popular-dishes-frame .cards-frame .card {
-  min-height: 430px;
-  min-width: 300px;
-  cursor: pointer;
-}
-
-.homepage .popular-dishes-frame .cards-frame .card .card-cover {
-  background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0) 200px
-    ),
-    linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 300px);
-}
-
-.homepage .popular-dishes-frame .no-data {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: capitalize;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 34px;
-  color: #e3c08d;
-}
-
-/**  NEW PRODUCTS **/
-
-.homepage .new-products-frame {
-  width: 100%;
-  height: 605px;
-  background: #f8f8f8;
-  display: flex;
-}
-.homepage .main {
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .new-products-frame .category-title {
-  font-family: "Dancing Script";
-  font-style: normal;
   font-weight: 700;
-  font-size: 36px;
-  line-height: 43px;
+  color: #603809;
+  margin-bottom: 30px;
+  line-height: 1.2;
 }
 
-.homepage .new-products-frame .main .cards-frame {
-  width: 100%;
-  margin: 47px 2px 2px 2px;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .new-products-frame .main .card {
-  height: 335px;
-  width: 290px;
-  cursor: pointer;
-}
-
-.homepage .new-products-frame .product-sale {
-  position: absolute;
-  margin-top: 10px;
-  z-index: 100;
-  width: 90px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ff9200;
-  box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 21px;
-  color: #f8f8f8;
-}
-
-.homepage .new-products-frame .product-detail {
-  width: auto;
-  height: 49%;
-  display: flex;
-  justify-content: center;
-  margin-top: -12px;
-  border-top: 1px solid;
-  border-color: #f8f8f8;
-  background-color: #fafbfb;
-}
-
-.homepage .new-products-frame .product-detail .info {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homepage .new-products-frame .product-detail .title {
-  width: 65px;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .product-detail .price {
-  margin-left: 10px;
-  width: 20px;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .product-detail .divider {
-  margin: 0 10px 0 10px;
-  width: 2px;
-  background-color: #d9d9d9;
-}
-
-.homepage .new-products-frame .product-detail .views {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .no-data {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: capitalize;
-  font-family: "Poppins";
-  font-style: normal;
+.discover-section .discover-description {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
   font-weight: 400;
-  font-size: 30px;
   line-height: 34px;
-  color: #e3c08d;
+  color: #707070;
+  margin-bottom: 30px;
+}
+
+.discover-section .learn-more-button {
+  width: 134px;
+  height: 48px;
+  border-radius: 24px;
+  background: #f9c06a;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1e1e;
+  text-transform: none;
+}
+
+.discover-section .learn-more-button:hover {
+  background: #f5b854;
+}
+
+.discover-section .discover-image {
+  flex: 1;
+  max-width: 500px;
+  height: 484px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.discover-section .discover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Coffee Styles Section */
+.coffee-styles-section {
+  width: 100%;
+  padding: 80px 0;
+  background: #fffefc;
+  position: relative;
+}
+
+.coffee-styles-section .coffee-styles-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.coffee-styles-section .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #603809;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: normal;
+}
+
+.coffee-styles-section .section-subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #707070;
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 980px;
+}
+
+.coffee-styles-section .coffee-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1180px;
+  flex-wrap: wrap;
+}
+
+.coffee-styles-section .coffee-card {
+  width: 280px;
+  min-height: 388px;
+  background: #fff9f1;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.coffee-styles-section .coffee-image {
+  width: 280px;
+  height: 222px;
+  object-fit: cover;
+  display: block;
+}
+
+.coffee-styles-section .coffee-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 20px 0;
+  text-align: center;
+  flex: 1;
+}
+
+.coffee-styles-section .coffee-name {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #603809;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.coffee-styles-section .coffee-description {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1e1e1e;
+  line-height: normal;
+  margin-bottom: 6px;
+}
+
+.coffee-styles-section .coffee-price {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #603809;
+  line-height: normal;
+  margin-bottom: 0;
+}
+
+.coffee-styles-section .coffee-order-button {
+  width: 134px;
+  height: 48px;
+  border-radius: 24px;
+  background: #f9c06a;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1e1e;
+  text-transform: none;
+  margin-top: auto;
+}
+
+.coffee-styles-section .coffee-order-button:hover {
+  background: #f5b854;
+}
+
+.coffee-styles-section .no-products {
+  width: 100%;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: #707070;
+  padding: 40px 0;
+}
+
+/* Why Different Section */
+.why-different-section {
+  width: 100%;
+  padding: 80px 0;
+  background: #fffefc;
+  position: relative;
+}
+
+.why-different-section::before {
+  content: "";
+  position: absolute;
+  right: -50px;
+  top: 20%;
+  width: 478px;
+  height: 261px;
+  background-size: contain;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.why-different-section .why-different-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.why-different-section .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #603809;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.why-different-section .section-subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #707070;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.why-different-section .features-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.why-different-section .feature-card {
+  width: 280px;
+  height: 284px;
+  background: #fff9f1;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  text-align: center;
+}
+
+.why-different-section .feature-card.highlight {
+  background: #ffeed8;
+}
+
+.why-different-section .feature-icon {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 25px;
+}
+
+.why-different-section .feature-title {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #603809;
+  margin-bottom: 15px;
+}
+
+.why-different-section .feature-description {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27px;
+  color: #707070;
+}
+
+.why-different-section .call-to-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.why-different-section .cta-text {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #707070;
+  text-align: center;
+  max-width: 980px;
+}
+
+.why-different-section .cta-highlight {
+  font-size: 30px;
+  font-weight: 700;
+  color: #603809;
+  display: block;
+  margin-top: 10px;
+}
+
+.why-different-section .join-button {
+  width: 134px;
+  height: 48px;
+  border-radius: 24px;
+  background: #f9c06a;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1e1e;
+  text-transform: none;
+}
+
+.why-different-section .join-button:hover {
+  background: #f5b854;
+}
+
+/* Amazing Morning Section */
+.amazing-morning-section {
+  width: 100%;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #603809 0%, #442808 100%);
+  position: relative;
+  min-height: 574px;
+}
+
+.amazing-morning-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(96, 56, 9, 0.8);
+  z-index: 1;
+}
+
+.amazing-morning-section .morning-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.amazing-morning-section .morning-text {
+  max-width: 575px;
+}
+
+.amazing-morning-section .morning-title {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 1.3;
+}
+
+.amazing-morning-section .morning-description {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.amazing-morning-section .morning-order-button {
+  width: 134px;
+  height: 48px;
+  border-radius: 24px;
+  background: #f9c06a;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1e1e;
+  text-transform: none;
+}
+
+.amazing-morning-section .morning-order-button:hover {
+  background: #f5b854;
+}
+
+.amazing-morning-section .morning-image {
+  position: relative;
+}
+
+.amazing-morning-section .coffee-cup {
+  width: 300px;
+  height: auto;
+  box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.34);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  width: 100%;
+  padding: 80px 0;
+  background: #fffefc;
+  position: relative;
+}
+
+.testimonial-section .testimonial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-section .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #603809;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.testimonial-section .section-subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #707070;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonial-section .testimonial-card {
+  width: 100%;
+  max-width: 1180px;
+  background: #fff9f1;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+  padding: 60px 80px;
+  position: relative;
+  text-align: center;
+}
+
+.testimonial-section .quote-mark {
+  font-family: "Playfair Display", serif;
+  font-size: 220px;
+  font-weight: 700;
+  color: #603809;
+  line-height: 112px;
+  position: absolute;
+  top: 40px;
+  left: 80px;
+}
+
+.testimonial-section .testimonial-text {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 36px;
+  color: #707070;
+  margin: 80px 0 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-section .testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.testimonial-section .author-name {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #603809;
+  margin-bottom: 10px;
+}
+
+.testimonial-section .author-title {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #707070;
+  margin-bottom: 20px;
+}
+
+.testimonial-section .customer-profile {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 40px 0;
+}
+
+.testimonial-section .customer-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  object-fit: cover;
+}
+
+.testimonial-section .navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 20px;
+  z-index: 3;
+}
+
+.testimonial-section .nav-button {
+  width: 82px;
+  height: 82px;
+  border-radius: 16px;
+  background: #f9c06a;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 82px;
+}
+
+.testimonial-section .nav-button:hover {
+  background: #f5b854;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.testimonial-section .nav-button svg {
+  width: 48px;
+  height: 48px;
+}
+
+/* Newsletter Section */
+.newsletter-section {
+  width: 100%;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #603809 0%, #442808 100%);
+  position: relative;
+  min-height: 436px;
+}
+
+.newsletter-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(96, 56, 9, 0.8);
+  z-index: 1;
+}
+
+.newsletter-section .newsletter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.newsletter-section .section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.newsletter-section .section-subtitle {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.newsletter-section .subscribe-form {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  width: 642px;
+  height: 66px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.newsletter-section .email-input {
+  flex: 1;
+  background: #fff9f1;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+}
+
+.newsletter-section .email-input .MuiOutlinedInput-root {
+  height: 66px;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.34);
+}
+
+.newsletter-section .email-input .MuiOutlinedInput-notchedOutline {
+  border: none;
+}
+
+.newsletter-section .subscribe-button {
+  width: 137px;
+  height: 66px;
+  border-radius: 4px;
+  background: #f9c06a;
+  box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #603809;
+  text-transform: none;
+}
+
+.newsletter-section .subscribe-button:hover {
+  background: #f5b854;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .discover-section .discover-content,
+  .amazing-morning-section .morning-content {
+    flex-direction: column;
+  }
+
+  .coffee-styles-section .coffee-cards,
+  .why-different-section .features-grid {
+    justify-content: center;
+  }
+
+  .testimonial-section .testimonial-card {
+    width: 90%;
+    padding: 40px 30px;
+  }
+
+  .testimonial-section .navigation-buttons {
+    gap: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .discover-section .discover-title,
+  .coffee-styles-section .section-title,
+  .why-different-section .section-title,
+  .amazing-morning-section .morning-title,
+  .testimonial-section .section-title,
+  .newsletter-section .section-title {
+    font-size: 36px;
+  }
+
+  .coffee-styles-section .section-subtitle {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 0 20px;
+  }
+
+  .newsletter-section .subscribe-form {
+    width: 90%;
+  }
+
+  .testimonial-section .navigation-buttons {
+    gap: 300px;
+    margin-top: -300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coffee-styles-section {
+    padding: 60px 0;
+  }
+
+  .coffee-styles-section .section-title {
+    font-size: 32px;
+    padding: 0 20px;
+  }
+
+  .coffee-styles-section .coffee-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .coffee-styles-section .coffee-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 280 / 222;
+  }
 }
 
 /**  Advertisement **/
@@ -241,68 +740,6 @@
   box-shadow: 0px -8px 90px rgba(215 215 255);
   transform: scale(1.5);
   overflow: hidden;
-}
-
-/**  Active Users **/
-.homepage .active-users-frame {
-  width: 100%;
-  height: 550px;
-  background: #f8f8f8;
-  display: flex;
-}
-.homepage .active-users-frame .main {
-  margin-top: 45px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .active-users-frame .category-title {
-  font-family: "Dancing Script";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 43px;
-}
-
-.homepage .cards-frame {
-  width: 100%;
-  margin: 55px 2px 2px 2px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 14px;
-}
-
-.homepage .cards-frame .card {
-  height: 305px;
-  width: 274px;
-  cursor: pointer;
-}
-
-.homepage .cards-frame .member-nickname {
-  color: #000;
-  text-align: center;
-  font-family: "Roboto Serif";
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.homepage .cards-frame .no-data {
-  width: 100%;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: capitalize;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 34px;
-  color: #e3c08d;
 }
 
 /** EVENTS **/

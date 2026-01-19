@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Statistics from "./Statistics";
-import PopularDishes from "./PopularDishes";
-import NewDishes from "./NewDishes";
-import Advertisement from "./Advertisement";
-import Events from "./Events";
-import ActiveUsers from "./ActiveUsers";
+import DiscoverSection from "./DiscoverSection";
+import CoffeeStylesSection from "./CoffeeStylesSection";
+import WhyDifferentSection from "./WhyDifferentSection";
+import AmazingMorningSection from "./AmazingMorningSection";
+import TestimonialSection from "./TestimonialSection";
+import NewsletterSection from "./NewsletterSection";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
@@ -65,12 +65,12 @@ export default function HomePage() {
 
   return (
     <div className={"homepage"}>
-      <Statistics />
-      <PopularDishes />
-      <NewDishes />
-      <Advertisement />
-      <ActiveUsers />
-      <Events />
+      <DiscoverSection />
+      <CoffeeStylesSection />
+      <WhyDifferentSection />
+      <AmazingMorningSection />
+      <TestimonialSection />
+      <NewsletterSection />
     </div>
   );
 }

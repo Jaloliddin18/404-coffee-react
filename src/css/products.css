@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  background: #f8f8f8;
+  background: #FFFEFC;
 }
 
 /** Products **/
@@ -11,7 +11,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  background: #f8f8f8;
+  background: #FFFEFC;
   flex-direction: column;
 }
 .products-page .products .avatar-big-box {
@@ -34,12 +34,12 @@
 }
 
 .products-page .products .avatar-big-box .category-title {
-  font-family: "Roboto Serif";
-  font-size: 36px;
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
-  color: #343434;
+  color: #603809;
 }
 
 .products-page .products .avatar-big-box .search-container {
@@ -67,10 +67,17 @@
 .products-page .products .avatar-big-box .search-container .search-btn {
   width: 106px;
   height: 30px;
-  color: #d7b586;
+  color: #1E1E1E;
   font-size: 13px;
   border-radius: 18.5px;
-  background: #343434;
+  background: #F9C06A;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.products-page .products .avatar-big-box .search-container .search-btn:hover {
+  background: #f5b854;
 }
 
 .products-page .products .dishes-filter-section {

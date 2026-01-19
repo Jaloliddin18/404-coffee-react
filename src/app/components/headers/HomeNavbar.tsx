@@ -48,12 +48,20 @@ export default function HomeNavbar(props: HomeNavbarProps) {
   /**Handlers */
 
   return (
-    <div className="home-navbar">
+    <div
+      className="home-navbar"
+      style={{
+        backgroundImage: "url('/img/coffee-hero-bg.jpg')",
+        backgroundPosition: 'center center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <img className="brand-logo" src="/icons/burak.svg" />
+              <div className="brand-name">Bean Scene</div>
             </NavLink>
           </Box>
           <Stack className="links">
@@ -64,44 +72,43 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             </Box>
             <Box className={"hover-line"}>
               <NavLink to="/products" activeClassName={"underline"}>
-                Products
+                Menu
               </NavLink>
             </Box>
-            {authMember ? (
-              <Box className={"hover-line"}>
-                <NavLink to="/orders" activeClassName={"underline"}>
-                  Orders
-                </NavLink>
-              </Box>
-            ) : null}
-            {authMember ? (
-              <Box className={"hover-line"}>
-                <NavLink to="/member-page" activeClassName={"underline"}>
-                  My Page
-                </NavLink>
-              </Box>
-            ) : null}
             <Box className={"hover-line"}>
               <NavLink to="/help" activeClassName={"underline"}>
                 Help
               </NavLink>
             </Box>
-            {/* Basket*/}
-            <Basket
-              cartItems={cartItems}
-              onAdd={onAdd}
-              onRemove={onRemove}
-              onDelete={onDelete}
-              onDeleteAll={onDeleteAll}
-            />
+            {!authMember ? (
+              <Box className="sign-in-link">
+                <span onClick={() => setLoginOpen(true)}>Sign In</span>
+              </Box>
+            ) : (
+              <Box className={"hover-line"}>
+                <NavLink to="/orders" activeClassName={"underline"}>
+                  Orders
+                </NavLink>
+              </Box>
+            )}
+            {/* Basket - visible only when logged in */}
+            {authMember && (
+              <Basket
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove}
+                onDelete={onDelete}
+                onDeleteAll={onDeleteAll}
+              />
+            )}
             {!authMember ? (
               <Box>
                 <Button
                   variant="contained"
-                  className="login-button"
-                  onClick={() => setLoginOpen(true)}
+                  className="signup-btn"
+                  onClick={() => setSignupOpen(true)}
                 >
-                  Login
+                  SingUp
                 </Button>
               </Box>
             ) : (
@@ -114,9 +121,9 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 }
                 aria-haspopup={"true"}
                 onClick={handleLogoutClick}
+                alt="User profile"
               />
             )}
-            /*
             <Menu
               anchorEl={anchorEl}
               id="account-menu"
@@ -161,28 +168,27 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             </Menu>
           </Stack>
         </Stack>
-        <Stack className={"header-frame"}>
-          <Stack className={"detail"}>
-            <Box className={"head-main-txt"}>
-              World's Most Delicious Cousine
+        <Stack className={"hero-section"}>
+          <Stack className={"hero-content"}>
+            <Box className={"hero-subtitle"}>
+              We've got your morning covered with
             </Box>
-            <Box className={"wel-txt"}>The Choice, not just a choice</Box>
-            <Box className={"service-txt"}>24 hours service</Box>
-            <Box className={"signup"}>
-              {!authMember ? (
-                <Button
-                  variant={"contained"}
-                  className={"signup-button"}
-                  onClick={() => setSignupOpen(true)}
-                >
-                  SIGN UP
-                </Button>
-              ) : null}
+            <Box className={"hero-title"}>Coffee</Box>
+            <Box className={"hero-description"}>
+              It is best to start your day with a cup of coffee. Discover the
+              best flavours coffee you will ever have. We provide the best
+              for our customers.
+            </Box>
+            <Box>
+              <Button
+                variant={"contained"}
+                className={"order-button"}
+                onClick={() => !authMember && setSignupOpen(true)}
+              >
+                Order Now
+              </Button>
             </Box>
           </Stack>
-          <Box className={"logo-frame"}>
-            <div className={"logo-img"}></div>
-          </Box>
         </Stack>
       </Container>
     </div>
