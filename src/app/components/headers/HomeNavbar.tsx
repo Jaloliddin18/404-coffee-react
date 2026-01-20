@@ -66,9 +66,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
           </Box>
           <Stack className="links">
             <Box className={"hover-line"}>
-              <NavLink to="/" activeClassName={"underline"}>
-                Home
-              </NavLink>
+              <NavLink to="/">Home</NavLink>
             </Box>
             <Box className={"hover-line"}>
               <NavLink to="/products" activeClassName={"underline"}>
@@ -76,18 +74,19 @@ export default function HomeNavbar(props: HomeNavbarProps) {
               </NavLink>
             </Box>
             <Box className={"hover-line"}>
-              <NavLink to="/help" activeClassName={"underline"}>
-                Help
+              <NavLink to="/orders" activeClassName={"underline"}>
+                Orders
               </NavLink>
             </Box>
+
             {!authMember ? (
               <Box className="sign-in-link">
                 <span onClick={() => setLoginOpen(true)}>Sign In</span>
               </Box>
             ) : (
               <Box className={"hover-line"}>
-                <NavLink to="/orders" activeClassName={"underline"}>
-                  Orders
+                <NavLink to="/help" activeClassName={"underline"}>
+                  Help
                 </NavLink>
               </Box>
             )}

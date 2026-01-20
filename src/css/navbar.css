@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 768px;
   display: flex;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   position: relative;
 }
 
@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #1E1E1E -6.88%, rgba(0, 0, 0, 0.00) 87.45%);
+  background: linear-gradient(90deg, #1e1e1e -6.88%, rgba(0, 0, 0, 0) 87.45%);
   z-index: 1;
 }
 
@@ -33,10 +33,10 @@
 }
 
 .home-navbar .navbar-container .menu .brand-name {
-  font-family: 'Clicker Script', cursive;
+  font-family: "Clicker Script", cursive;
   font-size: 35px;
   font-weight: 400;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
@@ -54,13 +54,13 @@
   width: 100px;
   height: 48px;
   border-radius: 24px;
-  background: #F9C06A;
+  background: #f9c06a;
   box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 14px;
   font-weight: 500;
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-transform: none;
   transition: all 0.3s ease;
 }
@@ -72,10 +72,10 @@
 }
 
 .home-navbar .navbar-container .menu .sign-in-link span {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 14px;
   font-weight: 500;
-  color: #FFF;
+  color: #fff;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -86,7 +86,7 @@
   border-radius: 50%;
   cursor: pointer;
   object-fit: cover;
-  border: 2px solid #F9C06A;
+  border: 2px solid #f9c06a;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
@@ -102,9 +102,9 @@
 }
 
 .home-navbar .hover-line a {
-  color: #FFF;
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
   font-weight: 500;
   z-index: 100;
 }
@@ -112,13 +112,13 @@
 .home-navbar .underline {
   display: block;
   content: "";
-  border-bottom: solid 2px #F9C06A;
+  border-bottom: solid 2px #f9c06a;
 }
 
 .home-navbar .hover-line:after {
   display: block;
   content: "";
-  border-bottom: solid 2px #F9C06A;
+  border-bottom: solid 2px #f9c06a;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }
@@ -145,28 +145,28 @@
 }
 
 .home-navbar .navbar-container .hero-section .hero-subtitle {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 22px;
   font-weight: 500;
-  color: #FFF;
+  color: #fff;
   margin-bottom: 10px;
 }
 
 .home-navbar .navbar-container .hero-section .hero-title {
-  font-family: 'Clicker Script', cursive;
+  font-family: "Clicker Script", cursive;
   font-size: 220px;
   font-weight: 400;
-  color: #FFF;
+  color: #fff;
   line-height: 1.2;
   margin: -20px 0;
 }
 
 .home-navbar .navbar-container .hero-section .hero-description {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 34px;
-  color: #FFF;
+  color: #fff;
   margin: 20px 0 30px 0;
 }
 
@@ -174,13 +174,13 @@
   width: 134px;
   height: 48px;
   border-radius: 24px;
-  background: #F9C06A;
+  background: #f9c06a;
   box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 16px;
   font-weight: 700;
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-transform: none;
 }
 
@@ -205,7 +205,7 @@
   width: 100%;
   min-height: 768px;
   display: flex;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   position: relative;
 }
 
@@ -216,7 +216,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #1E1E1E -6.88%, rgba(0, 0, 0, 0.00) 87.45%);
+  background: linear-gradient(90deg, #1e1e1e -6.88%, rgba(0, 0, 0, 0) 87.45%);
   z-index: 1;
 }
 
@@ -239,10 +239,10 @@
 }
 
 .other-navbar .navbar-container .menu .brand-name {
-  font-family: 'Clicker Script', cursive;
+  font-family: "Clicker Script", cursive;
   font-size: 35px;
   font-weight: 400;
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
@@ -260,13 +260,13 @@
   width: 100px;
   height: 48px;
   border-radius: 24px;
-  background: #F9C06A;
+  background: #f9c06a;
   box-shadow: 0 6px 12px 0 rgba(249, 192, 106, 0.22);
   text-align: center;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 14px;
   font-weight: 500;
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-transform: none;
   transition: all 0.3s ease;
 }
@@ -278,17 +278,17 @@
 }
 
 .other-navbar .navbar-container .menu .sign-in-link span {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 14px;
   font-weight: 500;
-  color: #FFF;
+  color: #fff;
   text-decoration: underline;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .other-navbar .navbar-container .menu .sign-in-link span:hover {
-  color: #F9C06A;
+  color: #f9c06a;
 }
 
 .other-navbar .navbar-container .menu .user-avatar {
@@ -297,7 +297,7 @@
   border-radius: 50%;
   cursor: pointer;
   object-fit: cover;
-  border: 2px solid #F9C06A;
+  border: 2px solid #f9c06a;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
@@ -313,9 +313,9 @@
 }
 
 .other-navbar .hover-line a {
-  color: #FFF;
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
   font-weight: 500;
   z-index: 100;
 }
@@ -323,13 +323,13 @@
 .other-navbar .underline {
   display: block;
   content: "";
-  border-bottom: solid 2px #F9C06A;
+  border-bottom: solid 2px #f9c06a;
 }
 
 .other-navbar .hover-line:after {
   display: block;
   content: "";
-  border-bottom: solid 2px #F9C06A;
+  border-bottom: solid 2px #f9c06a;
   transform: scaleX(0);
   transition: transform 250ms ease-in-out;
 }

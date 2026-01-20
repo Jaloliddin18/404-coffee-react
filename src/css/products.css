@@ -323,74 +323,6 @@
   justify-content: center;
 }
 
-.products-page .products .brands-logo {
-  width: 100%;
-  height: 630px;
-  display: flex;
-  background: rgb(13, 21, 24);
-}
-
-.products-page .products .brands-logo .logo-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 58px;
-}
-
-.products .brands-logo .logo-frame .logo-text {
-  /* margin-top: 84px; */
-  color: rgb(227, 192, 141);
-  font-family: Roboto;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 42px;
-  letter-spacing: 0%;
-  text-align: left;
-}
-
-.products-page .products .brands-logo .logo-frame .image-frame {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 58px;
-}
-
-.products-page .products .brands-logo .logo-frame .image-frame .image-shadow {
-  position: relative;
-  width: 258px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 86px;
-
-  border-radius: 20px;
-
-  box-shadow: 0px 0px 22px 0px rgb(228, 212, 212);
-  background: rgb(13, 21, 24);
-}
-
-.products-page
-  .products
-  .brands-logo
-  .logo-frame
-  .image-frame
-  .image-shadow
-  img {
-  position: absolute;
-  width: 238px;
-  height: 329px;
-
-  border-radius: 16px;
-
-  box-shadow:
-    inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
-    inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
-    inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  background: url("/public/img/gurme.webp");
-}
-
 .products-page.products .address {
   width: 100%;
   height: 701px;
@@ -406,7 +338,7 @@
 }
 
 .products-page .products .address .title {
-  color: rgb(52, 52, 52);
+  color: #603809;
   font-family: Roboto Serif;
   font-size: 36px;
   font-weight: 600;
@@ -600,7 +532,7 @@
 .products-page .events-frame {
   width: 100%;
   height: 745px;
-  background: #f8f8ff;
+  background: #603709e9 100%;
   display: flex;
 }
 
@@ -611,6 +543,7 @@
   font-size: 36px;
   line-height: 43px;
   padding-top: 20px;
+  color: white;
 }
 
 .products-page .events-frame .events-main {

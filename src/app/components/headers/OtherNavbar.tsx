@@ -62,7 +62,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
           </Box>
           <Stack className="links">
             <Box className={"hover-line"}>
-              <NavLink to="/" activeClassName={"underline"}>
+              <NavLink to="/" exact activeClassName={"underline"}>
                 Home
               </NavLink>
             </Box>
@@ -72,8 +72,8 @@ export default function OtherNavbar(props: OtherNavbarProps) {
               </NavLink>
             </Box>
             <Box className={"hover-line"}>
-              <NavLink to="/help" activeClassName={"underline"}>
-                Help
+              <NavLink to="/orders" activeClassName={"underline"}>
+                Orders
               </NavLink>
             </Box>
             {!authMember ? (
@@ -82,8 +82,8 @@ export default function OtherNavbar(props: OtherNavbarProps) {
               </Box>
             ) : (
               <Box className={"hover-line"}>
-                <NavLink to="/orders" activeClassName={"underline"}>
-                  Orders
+                <NavLink to="/help" activeClassName={"underline"}>
+                  Help
                 </NavLink>
               </Box>
             )}

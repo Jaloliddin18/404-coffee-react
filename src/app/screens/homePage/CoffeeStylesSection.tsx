@@ -5,6 +5,7 @@ import { createSelector } from "reselect";
 import { retrievePopularDishes } from "./selector";
 import { serverApi } from "../../../lib/config";
 import { Product } from "../../../lib/types/product";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const popularDishesRetriever = createSelector(
   retrievePopularDishes,
@@ -32,7 +33,15 @@ export default function CoffeeStylesSection() {
                     alt={product.productName}
                     className="coffee-image"
                   />
+
                   <Box className="coffee-info">
+                    <Box className="coffee-views">
+                      {product.productViews}
+                      <VisibilityIcon
+                        sx={{ fontSize: 25, marginLeft: "5px" }}
+                      />
+                    </Box>
+
                     <Box className="coffee-name">{product.productName}</Box>
                     <Box className="coffee-description">
                       {product.productDesc ||

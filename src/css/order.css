@@ -1,7 +1,7 @@
 .order-page {
   width: 100%;
   height: auto;
-  background: #FFFEFC;
+  background: #fffefc;
   display: flex;
 }
 
@@ -34,7 +34,8 @@
   flex-direction: column;
   align-items: center;
   background: #f8f8ff;
-  box-shadow: 15px 14px 4px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    15px 14px 4px rgba(0, 0, 0, 0.25),
     inset -1px 0px 16px 13px rgb(24 23 112 / 20%);
   border-radius: 16px;
   margin-bottom: 25px;
@@ -201,7 +202,8 @@
   max-height: 285px;
   margin-bottom: 25px;
   background: #f8f8ff;
-  box-shadow: -13px 16px 4px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    -13px 16px 4px rgba(0, 0, 0, 0.25),
     inset 0px -3px 20px 11px #18177033;
   border-radius: 16px;
 }
@@ -215,7 +217,7 @@
   margin-top: 15px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   overflow-y: scroll;
 }
 
@@ -317,7 +319,8 @@
   background: #0288d1;
   color: #f8f8ff;
   border-radius: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    0px 4px 4px rgba(0, 0, 0, 0.25),
     inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 

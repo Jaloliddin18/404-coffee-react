@@ -3,15 +3,10 @@ import { Box, Button, Container, Stack } from "@mui/material";
 
 export default function AmazingMorningSection() {
   return (
-    <div
-      className="amazing-morning-section"
-      style={{
-        backgroundImage: "url('/img/morning-coffee-bg.jpg')",
-        backgroundPosition: 'center center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
+    <div className="amazing-morning-section">
+      <video className="background-video" autoPlay muted loop playsInline>
+        <source src="/video/coffeeVidoe.mp4" type="video/mp4" />
+      </video>
       <Container>
         <Stack className="morning-content">
           <Box className="morning-text">
@@ -33,9 +28,6 @@ export default function AmazingMorningSection() {
               src="/img/coffee-cup-to-go.png"
               alt="Coffee cup"
               className="coffee-cup"
-              onError={(e) => {
-                e.currentTarget.src = "https://api.builder.io/api/v1/image/assets/TEMP/c309d2853da6e3a7237bdd8bcf6f7853acd414c4?width=600";
-              }}
             />
           </Box>
         </Stack>
