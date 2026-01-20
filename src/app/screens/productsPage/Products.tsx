@@ -21,6 +21,7 @@ import { IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
+import Events from "./Events";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setProducts: (data: Product[]) => dispatch(setProducts(data)),
@@ -336,27 +337,7 @@ export default function Products(props: ProductsProps) {
         </Stack>
       </Container>
 
-      <div className={"brands-logo"}>
-        <Container>
-          <Stack className="logo-frame">
-            <Box className="logo-text">Our Family Brands</Box>
-            <Stack className="image-frame">
-              <Box className="image-shadow">
-                <img src="/img/gurme.webp" />
-              </Box>
-              <Box className="image-shadow">
-                <img src="/img/seafood.png" />
-              </Box>
-              <Box className="image-shadow">
-                <img src="/img/sweets.png" />
-              </Box>
-              <Box className="image-shadow">
-                <img src="/img/doner.png" />
-              </Box>
-            </Stack>
-          </Stack>
-        </Container>
-      </div>
+      <Events />
 
       <div className={"address"}>
         <Container>

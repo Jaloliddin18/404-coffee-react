@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  background: #FFFEFC;
+  background: #fffefc;
 }
 
 /** Products **/
@@ -11,7 +11,7 @@
   width: 100%;
   height: auto;
   display: flex;
-  background: #FFFEFC;
+  background: #fffefc;
   flex-direction: column;
 }
 .products-page .products .avatar-big-box {
@@ -34,7 +34,7 @@
 }
 
 .products-page .products .avatar-big-box .category-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 54px;
   font-style: normal;
   font-weight: 700;
@@ -67,10 +67,10 @@
 .products-page .products .avatar-big-box .search-container .search-btn {
   width: 106px;
   height: 30px;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-size: 13px;
   border-radius: 18.5px;
-  background: #F9C06A;
+  background: #f9c06a;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -384,7 +384,8 @@
 
   border-radius: 16px;
 
-  box-shadow: inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
+  box-shadow:
+    inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
     inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
     inset 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   background: url("/public/img/gurme.webp");
@@ -444,7 +445,8 @@
   width: 48%;
   height: 480px;
   background: #ffffff;
-  box-shadow: 9px 13px 14px 5px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    9px 13px 14px 5px rgba(0, 0, 0, 0.25),
     inset -1px 2px 10px 3px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
   overflow: hidden;
@@ -472,7 +474,8 @@
   height: 480px;
   display: flex;
   background: #ffffff;
-  box-shadow: 9px 13px 14px 5px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    9px 13px 14px 5px rgba(0, 0, 0, 0.25),
     inset -1px 2px 10px 3px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
 }
@@ -592,4 +595,190 @@
   font-size: 36px;
   line-height: 43px;
   margin-top: 40px;
+}
+
+.products-page .events-frame {
+  width: 100%;
+  height: 745px;
+  background: #f8f8ff;
+  display: flex;
+}
+
+.products-page .events-frame .category-title {
+  font-family: "Dancing Script";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  padding-top: 20px;
+}
+
+.products-page .events-frame .events-main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-page .events-frame .events-main .events-text {
+  width: auto;
+  height: 70px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.products-page .events-frame .events-main .prev-next-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin: 40px 0 40px 0;
+  height: 25px;
+}
+
+.products-page .events-frame .dot-frame-pagination {
+  position: relative;
+  width: auto;
+  display: flex;
+}
+
+.products-page .events-frame .events-main .events-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.products-page .events-frame .events-info .events-info-frame {
+  position: relative;
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.products-page .events-frame .events-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+.products-page .events-frame .events-desc {
+  position: absolute;
+  margin-bottom: 7px;
+  padding: 10px;
+  display: flex;
+  width: 90%;
+  height: auto;
+  bottom: 5px;
+  background: #f8f8ff;
+  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
+  border-radius: 8px;
+}
+
+.products-page .events-frame .events-desc .events-bott {
+  width: 97%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-page .events-frame .events-desc .events-bott .bott-left {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.products-page .events-frame .bott-left .event-title-speaker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.products-page .events-frame .event-title-speaker .event-organizator {
+  display: flex;
+  align-items: center;
+}
+
+.products-page .events-frame .event-title-speaker .event-organizator img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.products-page .events-frame .event-organizator .spec-text-author {
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  line-height: 34px;
+  color: #140342;
+}
+
+.products-page .events-frame .bott-left .text-desc {
+  margin-top: 10px;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.products-page .events-frame .bott-left .bott-info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 100%;
+  height: 16px;
+}
+
+.products-page .events-frame .bott-info .bott-info-main {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: auto;
+  height: 100%;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.products-page .events-frame .bott-info .bott-info-main img {
+  margin-right: 10px;
+}
+
+.products-page .events-frame .swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.products-page .events-frame .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: #f8f8ff;
+  border-radius: 50%;
+}
+
+.products-page .events-frame .swiper-pagination-bullet-active {
+  background: #343434;
+  border-radius: 50%;
 }
