@@ -94,7 +94,7 @@ export default function Products(props: ProductsProps) {
         <Stack flexDirection={"column"} alignItems={"center"}>
           <Stack className={"avatar-big-box"}>
             <Stack className={"search-section"}>
-              <Box className={"category-title"}>Burak Restaurant</Box>
+              <Box className={"category-title"}> 404 Coffee </Box>
               <Box className="search-container">
                 <Box sx={{ position: "relative", flex: 1 }}>
                   <InputBase

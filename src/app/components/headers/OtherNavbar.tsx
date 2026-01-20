@@ -48,16 +48,16 @@ export default function OtherNavbar(props: OtherNavbarProps) {
       className="other-navbar"
       style={{
         backgroundImage: "url('/img/coffee-hero-bg.jpg')",
-        backgroundPosition: 'center center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <div className="brand-name">Bean Scene</div>
+              <div className="brand-name">404 Coffee</div>
             </NavLink>
           </Box>
           <Stack className="links">

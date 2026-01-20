@@ -52,16 +52,16 @@ export default function HomeNavbar(props: HomeNavbarProps) {
       className="home-navbar"
       style={{
         backgroundImage: "url('/img/coffee-hero-bg.jpg')",
-        backgroundPosition: 'center center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <div className="brand-name">Bean Scene</div>
+              <div className="brand-name">404 Coffee</div>
             </NavLink>
           </Box>
           <Stack className="links">
@@ -176,8 +176,8 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             <Box className={"hero-title"}>Coffee</Box>
             <Box className={"hero-description"}>
               It is best to start your day with a cup of coffee. Discover the
-              best flavours coffee you will ever have. We provide the best
-              for our customers.
+              best flavours coffee you will ever have. We provide the best for
+              our customers.
             </Box>
             <Box>
               <Button

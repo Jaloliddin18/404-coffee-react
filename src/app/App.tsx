@@ -11,6 +11,7 @@ import HomeNavbar from "./components/headers/HomeNavbar";
 import HelpPage from "./screens/helpPage";
 import useBasket from "./hooks/useBasket";
 import AuthenticationModal from "./components/auth";
+import { ChatWidget } from "./components/chat";
 import { sweetErrorHandling, sweetTopSuccessAlert } from "../lib/sweetAlert";
 import { Messages } from "../lib/config";
 import MemberService from "./services/MemberService";
@@ -105,8 +106,10 @@ function App() {
         handleLoginClose={handleLoginClose}
         handleSignupClose={handleSignupClose}
       />
+      <ChatWidget />
     </>
   );
 }
 
 export default App;
+
