@@ -55,7 +55,7 @@ const formatMessageTime = (date: Date): string => {
 };
 
 const WIDGET_NAME = 'BrewChat';
-const STORAGE_KEY = 'brewchat_interacted';
+const STORAGE_KEY = 'brewchat_session_interacted';
 
 const ChatWidget: React.FC = () => {
   const { authMember } = useGlobals();
@@ -68,13 +68,12 @@ const ChatWidget: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   const [adminStatus, setAdminStatus] = useState<AdminStatus>({ isOnline: false, adminCount: 0, lastSeen: new Date() });
-  const [hasInteracted, setHasInteracted] = useState(() => {
-    return localStorage.getItem(STORAGE_KEY) === 'true';
-  });
-  const [shouldAnimate, setShouldAnimate] = useState(!localStorage.getItem(STORAGE_KEY));
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const widgetRef = useRef<HTMLDivElement>(null);
   const isOpenRef = useRef(false);
+  const prevAuthMemberRef = useRef<typeof authMember>(null);
 
   // Close widget on outside click
   useEffect(() => {
@@ -97,19 +96,37 @@ const ChatWidget: React.FC = () => {
     
     if (isOpen) {
       setUnreadCount(0);
-      if (!hasInteracted) {
+      if (!hasInteracted && authMember) {
         setHasInteracted(true);
         setShouldAnimate(false);
-        localStorage.setItem(STORAGE_KEY, 'true');
+        sessionStorage.setItem(STORAGE_KEY, 'true');
       }
     }
-  }, [isOpen, hasInteracted]);
+  }, [isOpen, hasInteracted, authMember]);
 
-  // Trigger animation on login/signup
+  // Trigger animation on login/signup - detects when user logs in
   useEffect(() => {
-    if (authMember && !localStorage.getItem(STORAGE_KEY)) {
+    const wasLoggedOut = prevAuthMemberRef.current === null;
+    const isNowLoggedIn = authMember !== null;
+    
+    // Detect login event: transition from null to logged-in
+    if (wasLoggedOut && isNowLoggedIn) {
+      console.log('🎉 Login detected! Triggering BrewChat animation');
+      // Clear any previous interaction state and trigger animation
+      sessionStorage.removeItem(STORAGE_KEY);
       setShouldAnimate(true);
+      setHasInteracted(false);
     }
+    
+    // User logged out - reset animation state
+    if (!isNowLoggedIn) {
+      setShouldAnimate(false);
+      setHasInteracted(false);
+      sessionStorage.removeItem(STORAGE_KEY);
+    }
+    
+    // Update the ref to track the current value for next render
+    prevAuthMemberRef.current = authMember;
   }, [authMember]);
 
   // Global socket for admin status
@@ -302,6 +319,16 @@ const ChatWidget: React.FC = () => {
 
   return (
     <Box className="chat-widget-container" ref={widgetRef}>
+      {/* Attention Tooltip for first-time users */}
+      {shouldAnimate && !isOpen && (
+        <Fade in={shouldAnimate}>
+          <Box className="attention-tooltip">
+            <span>Say hi!</span>
+            <div className="tooltip-arrow"></div>
+          </Box>
+        </Fade>
+      )}
+
       {/* BrewChat Button */}
       <Fade in={!isOpen}>
         <Box
