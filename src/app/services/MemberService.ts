@@ -112,6 +112,22 @@ class MemberService {
       throw err;
     }
   }
+
+  public async getFavoriteProducts(
+    page: number = 1,
+    limit: number = 8,
+  ): Promise<any> {
+    try {
+      const url = `${this.path}/member/favorites?page=${page}&limit=${limit}`;
+      const result = await axios.get(url, { withCredentials: true });
+      console.log("getFavoriteProducts:", result);
+
+      return result.data;
+    } catch (err) {
+      console.log("Error, getFavoriteProducts", err);
+      throw err;
+    }
+  }
 }
 
 export default MemberService;

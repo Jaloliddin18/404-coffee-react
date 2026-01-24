@@ -4,6 +4,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Settings } from "./Settings";
+import { MyFavorites } from "./MyFavorites";
 import { useHistory } from "react-router-dom";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
@@ -26,6 +27,7 @@ export default function UserPage() {
                 <Settings />
               </Box>
             </Box>
+            <MyFavorites />
           </Stack>
 
           <Stack className={"my-page-right"}>

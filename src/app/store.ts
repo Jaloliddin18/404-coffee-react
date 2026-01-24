@@ -3,6 +3,8 @@ import HomePageReducer from "./screens/homePage/slice";
 import reduxLogger from "redux-logger";
 import ProductsPageReducer from "./screens/productsPage/slice";
 import OrdersPageReducer from "./screens/ordersPage/slice";
+import UserPageReducer from "./screens/userPage/slice";
+
 export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     //@ts-ignore
@@ -11,6 +13,7 @@ export const store = configureStore({
     homePage: HomePageReducer,
     productsPage: ProductsPageReducer,
     ordersPage: OrdersPageReducer,
+    userPage: UserPageReducer,
   },
 });
 
