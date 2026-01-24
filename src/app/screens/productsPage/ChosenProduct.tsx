@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Stack, Box } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Divider from "../../components/divider";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
@@ -22,6 +24,12 @@ import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import { serverApi } from "../../../lib/config";
 import { CartItem } from "../../../lib/types/search";
+import { useGlobals } from "../../hooks/useGlobals";
+import {
+  sweetErrorHandling,
+  sweetTopSuccessAlert,
+} from "../../../lib/sweetAlert";
+import { Messages } from "../../../lib/config";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
@@ -51,11 +59,20 @@ export default function ChosenProduct(props: ChosenProductProps) {
   const { setChosenProduct, setRestaurant } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
   const { restaurant } = useSelector(restaurantRetriever);
+  const { authMember } = useGlobals();
+  const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [likeCount, setLikeCount] = useState<number>(0);
+
   useEffect(() => {
     const product = new ProductService();
     product
       .getProduct(productId)
-      .then((data) => setChosenProduct(data))
+      .then((data) => {
+        setChosenProduct(data);
+        // Check if product has meLiked property from backend
+        setIsLiked((data as any).meLiked ?? false);
+        setLikeCount((data as any).productLikes ?? 0);
+      })
       .catch((err) => console.log(err));
 
     const member = new MemberService();
@@ -63,7 +80,37 @@ export default function ChosenProduct(props: ChosenProductProps) {
       .getCoffeeShop()
       .then((data: Member) => setRestaurant(data))
       .catch((err: any) => console.log(err));
-  }, []);
+  }, [productId]);
+
+  const handleLikeProduct = async () => {
+    try {
+      if (!authMember) {
+        sweetErrorHandling(Messages.error1);
+        return;
+      }
+
+      const previousLikeCount = likeCount;
+      const productService = new ProductService();
+      const result = await productService.likeTargetProduct(productId);
+
+      // Get new like count from response
+      const newLikeCount = (result as any).productLikes ?? 0;
+      setLikeCount(newLikeCount);
+
+      // Determine if we just liked or unliked based on count change
+      // If count increased, we liked. If count decreased, we unliked.
+      if (newLikeCount > previousLikeCount) {
+        setIsLiked(true);
+        await sweetTopSuccessAlert("Added to favorites!", 1000);
+      } else {
+        setIsLiked(false);
+        await sweetTopSuccessAlert("Removed from favorites!", 1000);
+      }
+    } catch (err) {
+      console.log(err);
+      sweetErrorHandling(Messages.error1);
+    }
+  };
 
   if (!chosenProduct) return null;
 
@@ -103,6 +150,10 @@ export default function ChosenProduct(props: ChosenProductProps) {
                   <RemoveRedEyeIcon sx={{ mr: "10px" }} />
                   <span>{chosenProduct?.productViews}</span>
                 </div>
+                <div className={"product-view"} style={{ marginLeft: "20px" }}>
+                  <FavoriteIcon sx={{ mr: "5px", color: "#d32f2f" }} />
+                  <span>{likeCount}</span>
+                </div>
               </div>
             </Box>
             <p className={"product-desc"}>
@@ -115,7 +166,24 @@ export default function ChosenProduct(props: ChosenProductProps) {
               <span>Price:</span>
               <span>${chosenProduct?.productPrice}</span>
             </div>
-            <div className={"button-box"}>
+            <div
+              className={"button-box"}
+              style={{ display: "flex", gap: "12px" }}
+            >
+              <Button
+                variant="contained"
+                onClick={handleLikeProduct}
+                sx={{
+                  minWidth: "50px",
+                  backgroundColor: "#d32f2f",
+                  color: "white",
+                  "&:hover": {
+                    backgroundColor: "#b71c1c",
+                  },
+                }}
+              >
+                <FavoriteIcon />
+              </Button>
               <Button
                 variant="contained"
                 onClick={(e) => {

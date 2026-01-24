@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import { Route, Switch, Link, useLocation } from "react-router-dom";
+import { Route, Switch, Link, useLocation, useHistory } from "react-router-dom";
 import HomePage from "./screens/homePage";
 import ProductsPage from "./screens/productsPage";
 import UserPage from "./screens/userPage";
@@ -22,6 +22,7 @@ import "../css/footer.css";
 
 function App() {
   const location = useLocation();
+  const history = useHistory();
 
   const { authMember, setAuthMember } = useGlobals();
 
@@ -44,6 +45,7 @@ function App() {
 
       await sweetTopSuccessAlert("Success", 700);
       setAuthMember(null);
+      history.push("/");
     } catch (err) {
       console.log(err);
       sweetErrorHandling(Messages.error1);
@@ -112,4 +114,3 @@ function App() {
 }
 
 export default App;
-
