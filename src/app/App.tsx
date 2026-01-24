@@ -107,6 +107,7 @@ function App() {
         loginOpen={loginOpen}
         handleLoginClose={handleLoginClose}
         handleSignupClose={handleSignupClose}
+        handleSignupOpen={() => setSignupOpen(true)}
       />
       <ChatWidget />
     </>

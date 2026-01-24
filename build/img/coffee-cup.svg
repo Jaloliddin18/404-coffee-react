@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path d="M12 20h32c0 0 2 0 2 2v22c0 4-2 8-6 8H16c-4 0-6-4-6-8V22c0-2 2-2 2-2z" fill="#8B4513"/>
+  <path d="M44 24h6c4 0 6 2 6 6s-2 6-6 6h-6" stroke="#8B4513" stroke-width="3" fill="none"/>
+  <path d="M16 12c0 0 0-4 4-4s4 4 4 4" stroke="#D2691E" stroke-width="2" fill="none" opacity="0.6">
+    <animate attributeName="d" values="M16 12c0 0 0-4 4-4s4 4 4 4;M16 8c0 0 0-6 4-6s4 6 4 6;M16 12c0 0 0-4 4-4s4 4 4 4" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M26 12c0 0 0-4 4-4s4 4 4 4" stroke="#D2691E" stroke-width="2" fill="none" opacity="0.4">
+    <animate attributeName="d" values="M26 12c0 0 0-4 4-4s4 4 4 4;M26 6c0 0 0-8 4-8s4 8 4 8;M26 12c0 0 0-4 4-4s4 4 4 4" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M36 12c0 0 0-4 4-4s4 4 4 4" stroke="#D2691E" stroke-width="2" fill="none" opacity="0.5">
+    <animate attributeName="d" values="M36 12c0 0 0-4 4-4s4 4 4 4;M36 8c0 0 0-6 4-6s4 6 4 6;M36 12c0 0 0-4 4-4s4 4 4 4" dur="1.8s" repeatCount="indefinite"/>
+  </path>
+</svg>
