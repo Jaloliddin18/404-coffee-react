@@ -4,7 +4,6 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import {
-  Fab,
   Stack,
   TextField,
   Button,
@@ -20,7 +19,6 @@ import {
   Box,
 } from "@mui/material";
 import styled from "styled-components";
-import LoginIcon from "@mui/icons-material/Login";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -55,21 +53,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalImg = styled.img`
-  width: 62%;
-  height: 100%;
-  border-radius: 10px;
-  background: #000;
-  margin-top: 9px;
-  margin-left: 10px;
-`;
-
 interface AuthenticationModalProps {
   signupOpen: boolean;
   loginOpen: boolean;
   handleSignupClose: () => void;
   handleLoginClose: () => void;
   handleSignupOpen?: () => void;
+  handleLoginOpen?: () => void;
 }
 
 export default function AuthenticationModal(props: AuthenticationModalProps) {
@@ -79,6 +69,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
     handleSignupClose,
     handleLoginClose,
     handleSignupOpen,
+    handleLoginOpen,
   } = props;
   const classes = useStyles();
   const theme = useTheme();
@@ -87,6 +78,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
   const [memberPassword, setMemberPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const { setAuthMember } = useGlobals();
   const history = useHistory();
 
@@ -171,6 +163,13 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
     handleLoginClose();
     if (handleSignupOpen) {
       handleSignupOpen();
+    }
+  };
+
+  const handleSwitchToLogin = () => {
+    handleSignupClose();
+    if (handleLoginOpen) {
+      handleLoginOpen();
     }
   };
 
@@ -320,8 +319,8 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
 
       {/* EXISTING SIGNUP MODAL */}
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
+        aria-labelledby="signup-modal-title"
+        aria-describedby="signup-modal-description"
         className={classes.modal}
         open={signupOpen}
         onClose={handleSignupClose}
@@ -332,46 +331,119 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
         }}
       >
         <Fade in={signupOpen}>
-          <Stack
-            className={classes.paper}
-            direction={"row"}
-            sx={{ width: "800px" }}
-          >
-            <ModalImg src={"/img/auth.webp"} alt="camera" />
-            <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
-              <h2>Signup Form</h2>
-              <TextField
-                sx={{ marginTop: "7px" }}
-                id="signup-username"
-                label="username"
-                variant="outlined"
-                onChange={handleUserName}
-              />
-              <TextField
-                sx={{ my: "17px" }}
-                id="signup-phone"
-                label="phone number"
-                variant="outlined"
-                onChange={handlePhone}
-              />
-              <TextField
-                id="signup-password"
-                label="password"
-                variant="outlined"
-                onChange={handlePassword}
-                onKeyDown={handlePasswordKeyDown}
-              />
-              <Fab
-                sx={{ marginTop: "30px", width: "120px" }}
-                variant="extended"
-                color="primary"
-                onClick={handleSignupRequest}
+          <Box className={classes.loginPaper}>
+            <h2 style={{ marginBottom: 8, textAlign: "center" }}>Sign Up</h2>
+            <Alert
+              sx={{ mb: 2, px: 1, py: 0.25, width: "100%" }}
+              severity="info"
+            >
+              Create an account to get started!
+            </Alert>
+            <TextField
+              id="signup-username"
+              label="Username"
+              variant="outlined"
+              size="small"
+              fullWidth
+              sx={{ mb: 2 }}
+              onChange={handleUserName}
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountCircle fontSize="inherit" />
+                    </InputAdornment>
+                  ),
+                },
+              }}
+            />
+            <TextField
+              id="signup-phone"
+              label="Phone Number"
+              variant="outlined"
+              size="small"
+              fullWidth
+              sx={{ mb: 2 }}
+              onChange={handlePhone}
+            />
+            <TextField
+              id="signup-password"
+              label="Password"
+              variant="outlined"
+              size="small"
+              fullWidth
+              type={showPassword ? "text" : "password"}
+              onChange={handlePassword}
+              onKeyDown={handlePasswordKeyDown}
+              sx={{ mb: 2 }}
+              slotProps={{
+                input: {
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                        size="small"
+                      >
+                        {showPassword ? (
+                          <VisibilityOff fontSize="inherit" />
+                        ) : (
+                          <Visibility fontSize="inherit" />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                },
+              }}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={termsAccepted}
+                  onChange={(e) => setTermsAccepted(e.target.checked)}
+                  color="primary"
+                  sx={{ padding: 0.5, "& .MuiSvgIcon-root": { fontSize: 20 } }}
+                />
+              }
+              label="I agree with the T&C"
+              slotProps={{
+                typography: {
+                  color: "textSecondary",
+                  fontSize: theme.typography.pxToRem(14),
+                },
+              }}
+              sx={{ mb: 1 }}
+            />
+            <Button
+              variant="outlined"
+              color="info"
+              size="small"
+              disableElevation
+              fullWidth
+              sx={{ my: 2 }}
+              onClick={handleSignupRequest}
+              disabled={!termsAccepted}
+            >
+              Sign Up
+            </Button>
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              sx={{ mt: 1 }}
+            >
+              <Link
+                component="button"
+                variant="body2"
+                onClick={handleSwitchToLogin}
+                sx={{ cursor: "pointer" }}
               >
-                <LoginIcon sx={{ mr: 1 }} />
-                Signup
-              </Fab>
+                Already have an account? Log in
+              </Link>
             </Stack>
-          </Stack>
+          </Box>
         </Fade>
       </Modal>
     </div>
