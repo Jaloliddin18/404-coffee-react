@@ -84,11 +84,18 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <span onClick={() => setLoginOpen(true)}>Sign In</span>
               </Box>
             ) : (
-              <Box className={"hover-line"}>
-                <NavLink to="/help" activeClassName={"underline"}>
-                  Help
-                </NavLink>
-              </Box>
+              <>
+                <Box className={"hover-line"}>
+                  <NavLink to="/help" activeClassName={"underline"}>
+                    Help
+                  </NavLink>
+                </Box>
+                <Box className={"hover-line"}>
+                  <NavLink to="/member-page" activeClassName={"underline"}>
+                    My Page
+                  </NavLink>
+                </Box>
+              </>
             )}
             {/* Basket - visible only when logged in */}
             {authMember && (

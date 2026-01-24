@@ -10,6 +10,7 @@ import "./css/index.css";
 import theme from "./app/MaterialTheme";
 import { BrowserRouter as Router } from "react-router-dom";
 import ContextProvider from "./app/context/ContextProvider";
+import Snowfall from "react-snowfall";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -23,10 +24,31 @@ root.render(
           <Router>
             <App />
           </Router>
+          {/* Snowfall overlay */}
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              pointerEvents: "none",
+              zIndex: 9999,
+            }}
+          >
+            <Snowfall
+              snowflakeCount={150}
+              style={{
+                position: "fixed",
+                width: "100vw",
+                height: "100vh",
+              }}
+            />
+          </div>
         </ThemeProvider>
       </ContextProvider>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
