@@ -114,13 +114,12 @@ export default function Basket(props: BasketProps) {
         <Stack className={"basket-frame"}>
           <Box className={"all-check-box"}>
             {cartItems.length === 0 ? (
-              <div>Cart is empty!</div>
+              <div style={{ color: "white" }}>Cart is empty!</div>
             ) : (
               <Stack flexDirection={"row"}>
-                <div>Cart Products:</div>
+                <div style={{ color: "white" }}>Cart Products:</div>
                 <DeleteForeverIcon
-                  sx={{ ml: "5px", cursor: "pointer" }}
-                  color={"primary"}
+                  sx={{ ml: "5px", cursor: "pointer", color: "white" }}
                   onClick={() => onDeleteAll()}
                 />
               </Stack>
@@ -177,6 +176,7 @@ export default function Basket(props: BasketProps) {
                 Total: ${totalPrice} ({itemsPrice}+{shippingCost})
               </span>
               <Button
+                sx={{ backgroundColor: "#603709e9", color: "white" }}
                 onClick={proceedOrderHandler}
                 startIcon={<ShoppingCartIcon />}
                 variant={"contained"}

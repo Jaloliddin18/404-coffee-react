@@ -71,7 +71,7 @@
 }
 
 .products-page .products .avatar-big-box .search-container .search-input {
-  color: #5d3a1a;
+  color: #8b4513;
   font-family: Quicksand, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -86,7 +86,7 @@
   .avatar-big-box
   .search-container
   .search-input::placeholder {
-  color: #a0522d;
+  color: #8b4513;
   opacity: 0.7;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .products-page .products .avatar-big-box .search-container .search-btn:hover {
-  background: #a0522d;
+  background: #8b4513;
 }
 
 .products-page .products .dishes-filter-section {
