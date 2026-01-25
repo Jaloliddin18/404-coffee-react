@@ -155,15 +155,6 @@
   align-items: center;
 }
 
-/* Legacy category button styles - can be removed if not needed */
-.products-page .product-category > div {
-  display: none; /* Hidden since we now use ButtonGroup */
-}
-
-.products-page .product-category .category-btn {
-  display: none; /* Hidden since we now use ButtonGroup */
-}
-
 .products-page .products .product-wrapper {
   padding-top: 20px;
   width: 100%;
@@ -296,11 +287,6 @@
 
 .products-page .products .product-order-button:hover {
   background: #f5b854;
-}
-
-/* Remove old styles */
-.products-page .products .product-card .product-img {
-  display: none;
 }
 
 .products-page .products .product-wrapper .no-data {

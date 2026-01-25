@@ -1,7 +1,5 @@
-import { useState, SyntheticEvent, useEffect } from "react";
-import { Container, Stack, Box } from "@mui/material";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
+import { useState, useEffect } from "react";
+import { Container, Stack, Box, Button } from "@mui/material";
 import TabContext from "@mui/lab/TabContext";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PausedOrders from "./PausedOrders";
@@ -33,7 +31,7 @@ export default function OrdersPage() {
 
   if (!authMember) history.push("/");
   const [value, setValue] = useState("1");
-  const [orderInquiry, setOrderInquiry] = useState<OrderInquiry>({
+  const [orderInquiry] = useState<OrderInquiry>({
     page: 1,
     limit: 5,
     orderStatus: OrderStatus.PAUSE,
@@ -55,31 +53,41 @@ export default function OrdersPage() {
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
       .then((data) => setFinishedOrders(data))
       .catch((err) => console.log(err));
-  }, [orderInquiry, orderBuilder]);
+  }, [
+    orderInquiry,
+    orderBuilder,
+    setFinishedOrders,
+    setPausedOrders,
+    setProcessOrders,
+  ]);
 
   /** Handlers */
-
-  const handleChange = (e: SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
   return (
     <div className={"order-page"}>
       <Container className="order-container">
         <Stack className={"order-left"}>
           <TabContext value={value}>
             <Box className={"order-nav-frame"}>
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  aria-label="basic tabs example"
-                  className={"table_list"}
+              <Stack className={"order-nav-pills"}>
+                <Button
+                  onClick={() => setValue("1")}
+                  className={value === "1" ? "order-pill active" : "order-pill"}
                 >
-                  <Tab label="PAUSED ORDERS" value={"1"} />
-                  <Tab label="PROCESS ORDERS" value={"2"} />
-                  <Tab label="FINISHED ORDERS" value={"3"} />
-                </Tabs>
-              </Box>
+                  Paused
+                </Button>
+                <Button
+                  onClick={() => setValue("2")}
+                  className={value === "2" ? "order-pill active" : "order-pill"}
+                >
+                  Process
+                </Button>
+                <Button
+                  onClick={() => setValue("3")}
+                  className={value === "3" ? "order-pill active" : "order-pill"}
+                >
+                  Finished
+                </Button>
+              </Stack>
             </Box>
             <Stack className={"order-main-content"}>
               <PausedOrders setValue={setValue} />
@@ -100,6 +108,7 @@ export default function OrdersPage() {
                       : "/icons/default-user.svg"
                   }
                   className={"order-user-avatar"}
+                  alt="user avatar"
                 />
                 <div className={"order-user-icon-box"}>
                   <img
@@ -109,6 +118,7 @@ export default function OrdersPage() {
                         : "/icons/user-badge.svg"
                     }
                     className={"order-user-prof-img"}
+                    alt="user status"
                   />
                 </div>
               </div>
@@ -166,10 +176,10 @@ export default function OrdersPage() {
               className={"card-input"}
             />
             <div className={"cards-box"}>
-              <img src={"/icons/western-card.svg"} />
-              <img src={"/icons/master-card.svg"} />
-              <img src={"/icons/paypal-card.svg"} />
-              <img src={"/icons/visa-card.svg"} />
+              <img src={"/icons/western-card.svg"} alt="western" />
+              <img src={"/icons/master-card.svg"} alt="mastercard" />
+              <img src={"/icons/paypal-card.svg"} alt="paypal" />
+              <img src={"/icons/visa-card.svg"} alt="visa" />
             </div>
           </Box>
         </Stack>
