@@ -5,7 +5,6 @@ const features = [
   {
     id: 1,
     icon: "/img/coffee-beans-icon.png",
-    iconFallback: "https://api.builder.io/api/v1/image/assets/TEMP/31f539c40a4a1c7bc30c75209a5348dfdf4a9108?width=176",
     title: "Supreme Beans",
     description: "Beans that provides great taste",
     highlight: true,
@@ -13,7 +12,6 @@ const features = [
   {
     id: 2,
     icon: "/img/badge-icon.png",
-    iconFallback: "https://api.builder.io/api/v1/image/assets/TEMP/3ed1e48f1808fd12f47bb589360576ff9366a121?width=176",
     title: "High Quality",
     description: "We provide the highest quality",
     highlight: false,
@@ -21,7 +19,6 @@ const features = [
   {
     id: 3,
     icon: "/img/coffee-cup-icon.png",
-    iconFallback: "https://api.builder.io/api/v1/image/assets/TEMP/a7ebecdb6feccd2b8fc0a7f5b5008cf542460fae?width=176",
     title: "Extraordinary",
     description: "Coffee like you have never tasted",
     highlight: false,
@@ -29,7 +26,6 @@ const features = [
   {
     id: 4,
     icon: "/img/best-price-icon.png",
-    iconFallback: "https://api.builder.io/api/v1/image/assets/TEMP/bb6bb4dbd036df731040a57431ae68851918ae8d?width=176",
     title: "Affordable Price",
     description: "Our Coffee prices are easy to afford",
     highlight: false,
@@ -55,9 +51,6 @@ export default function WhyDifferentSection() {
                   src={feature.icon}
                   alt={feature.title}
                   className="feature-icon"
-                  onError={(e) => {
-                    e.currentTarget.src = feature.iconFallback;
-                  }}
                 />
                 <Box className="feature-title">{feature.title}</Box>
                 <Box className="feature-description">{feature.description}</Box>

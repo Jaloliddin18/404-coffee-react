@@ -19,7 +19,7 @@ import DoneAllIcon from "@mui/icons-material/DoneAll";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
-import "./ChatWidget.css";
+import "../../../css/chatWidget.css";
 
 interface Message {
   _id?: string;

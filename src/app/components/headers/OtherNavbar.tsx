@@ -53,125 +53,129 @@ export default function OtherNavbar(props: OtherNavbarProps) {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <Container className="navbar-container">
-        <Stack className="menu">
-          <Box>
-            <NavLink to="/">
-              <div className="brand-name">404 Coffee</div>
-            </NavLink>
-          </Box>
-          <Stack className="links">
-            <Box className={"hover-line"}>
-              <NavLink to="/" exact activeClassName={"underline"}>
-                Home
+      <Box className="hover-navbar">
+        <Container className="navbar-container">
+          <Stack className="menu">
+            <Box>
+              <NavLink to="/">
+                <div className="brand-name">404 Coffee</div>
               </NavLink>
             </Box>
-            <Box className={"hover-line"}>
-              <NavLink to="/products" activeClassName={"underline"}>
-                Menu
-              </NavLink>
-            </Box>
-            <Box className={"hover-line"}>
-              <NavLink to="/orders" activeClassName={"underline"}>
-                Orders
-              </NavLink>
-            </Box>
-            {!authMember ? (
-              <Box className="sign-in-link">
-                <span onClick={() => setLoginOpen(true)}>Sign In</span>
+            <Stack className="links">
+              <Box className={"hover-line"}>
+                <NavLink to="/" exact activeClassName={"underline"}>
+                  Home
+                </NavLink>
               </Box>
-            ) : (
-              <>
-                <Box className={"hover-line"}>
-                  <NavLink to="/help" activeClassName={"underline"}>
-                    Help
-                  </NavLink>
-                </Box>
-                <Box className={"hover-line"}>
-                  <NavLink to="/member-page" activeClassName={"underline"}>
-                    My Page
-                  </NavLink>
-                </Box>
-              </>
-            )}
-            {/* Basket - visible only when logged in */}
-            {authMember && (
-              <Basket
-                cartItems={cartItems}
-                onAdd={onAdd}
-                onRemove={onRemove}
-                onDelete={onDelete}
-                onDeleteAll={onDeleteAll}
-              />
-            )}
-            {!authMember ? (
-              <Box>
-                <Button
-                  variant="contained"
-                  className="signup-btn"
-                  onClick={() => setSignupOpen(true)}
-                >
-                  SingUp
-                </Button>
+              <Box className={"hover-line"}>
+                <NavLink to="/products" activeClassName={"underline"}>
+                  Menu
+                </NavLink>
               </Box>
-            ) : (
-              <img
-                className="user-avatar"
-                src={
-                  authMember?.memberImage
-                    ? `${serverApi}/${authMember?.memberImage}`
-                    : "/icons/default-user.svg"
-                }
-                aria-haspopup={"true"}
-                onClick={handleLogoutClick}
-                alt="User profile"
-              />
-            )}
-            <Menu
-              anchorEl={anchorEl}
-              id="account-menu"
-              open={Boolean(anchorEl)}
-              onClose={handleCloseLogout}
-              onClick={handleCloseLogout}
-              PaperProps={{
-                elevation: 0,
-                sx: {
-                  overflow: "visible",
-                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                  mt: 1.5,
-                  "& .MuiAvatar-root": {
-                    width: 32,
-                    height: 32,
-                    ml: -0.5,
-                    mr: 1,
+              <Box className={"hover-line"}>
+                <NavLink to="/orders" activeClassName={"underline"}>
+                  Orders
+                </NavLink>
+              </Box>
+              {!authMember ? (
+                <Box className="sign-in-link">
+                  <span onClick={() => setLoginOpen(true)}>Sign In</span>
+                </Box>
+              ) : (
+                <>
+                  <Box className={"hover-line"}>
+                    <NavLink to="/help" activeClassName={"underline"}>
+                      Help
+                    </NavLink>
+                  </Box>
+                  <Box className={"hover-line"}>
+                    <NavLink to="/member-page" activeClassName={"underline"}>
+                      My Page
+                    </NavLink>
+                  </Box>
+                </>
+              )}
+              {/* Basket - visible only when logged in */}
+              {authMember && (
+                <Basket
+                  cartItems={cartItems}
+                  onAdd={onAdd}
+                  onRemove={onRemove}
+                  onDelete={onDelete}
+                  onDeleteAll={onDeleteAll}
+                />
+              )}
+              {!authMember ? (
+                <Box>
+                  <Button
+                    variant="contained"
+                    className="signup-btn"
+                    onClick={() => setSignupOpen(true)}
+                  >
+                    SingUp
+                  </Button>
+                </Box>
+              ) : (
+                <img
+                  className="user-avatar"
+                  src={
+                    authMember?.memberImage
+                      ? `${serverApi}/${authMember?.memberImage}`
+                      : "/icons/default-user.svg"
+                  }
+                  aria-haspopup={"true"}
+                  onClick={handleLogoutClick}
+                  alt="User profile"
+                  role="button"
+                  tabIndex={0}
+                />
+              )}
+              <Menu
+                anchorEl={anchorEl}
+                id="account-menu"
+                open={Boolean(anchorEl)}
+                onClose={handleCloseLogout}
+                onClick={handleCloseLogout}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    overflow: "visible",
+                    filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                    mt: 1.5,
+                    "& .MuiAvatar-root": {
+                      width: 32,
+                      height: 32,
+                      ml: -0.5,
+                      mr: 1,
+                    },
+                    "&:before": {
+                      content: '""',
+                      display: "block",
+                      position: "absolute",
+                      top: 0,
+                      right: 14,
+                      width: 10,
+                      height: 10,
+                      bgcolor: "background.paper",
+                      transform: "translateY(-50%) rotate(45deg)",
+                      zIndex: 0,
+                    },
                   },
-                  "&:before": {
-                    content: '""',
-                    display: "block",
-                    position: "absolute",
-                    top: 0,
-                    right: 14,
-                    width: 10,
-                    height: 10,
-                    bgcolor: "background.paper",
-                    transform: "translateY(-50%) rotate(45deg)",
-                    zIndex: 0,
-                  },
-                },
-              }}
-              transformOrigin={{ horizontal: "right", vertical: "top" }}
-              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-            >
-              <MenuItem onClick={handleLogoutRequest}>
-                <ListItemIcon>
-                  <Logout fontSize="small" style={{ color: "blue" }} />
-                </ListItemIcon>
-                Logout
-              </MenuItem>
-            </Menu>
+                }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+              >
+                <MenuItem onClick={handleLogoutRequest}>
+                  <ListItemIcon>
+                    <Logout fontSize="small" style={{ color: "blue" }} />
+                  </ListItemIcon>
+                  Logout
+                </MenuItem>
+              </Menu>
+            </Stack>
           </Stack>
-        </Stack>
-      </Container>
+        </Container>
+      </Box>
     </div>
   );
 }

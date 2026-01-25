@@ -4,19 +4,6 @@ import { Box, Button, Container, Stack } from "@mui/material";
 export default function DiscoverSection() {
   return (
     <div className="discover-section" style={{ position: "relative" }}>
-      {/* Coffee Blast - right bottom of learn more button */}
-      <img
-        src="/img/coffee-blast-1.png"
-        alt=""
-        style={{
-          position: "absolute",
-          marginTop: 40,
-          left: -121,
-          width: 498,
-          height: 272,
-          pointerEvents: "none",
-        }}
-      />
       <Container>
         <Stack className="discover-content">
           <Box className="discover-text">
@@ -35,14 +22,7 @@ export default function DiscoverSection() {
             </Box>
           </Box>
           <Box className="discover-image">
-            <img
-              src="/img/coffee-cup-beans.jpg"
-              alt="Coffee cup with beans"
-              onError={(e) => {
-                e.currentTarget.src =
-                  "https://api.builder.io/api/v1/image/assets/TEMP/c9e6f2e4b5833d70e96c7a37954ce1075578ba93?width=1360";
-              }}
-            />
+            <img src="/img/coffee-cup-beans.jpg" alt="Coffee cup with beans" />
           </Box>
         </Stack>
       </Container>

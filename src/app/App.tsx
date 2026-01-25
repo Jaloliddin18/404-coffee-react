@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import { Route, Switch, Link, useLocation, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Route, Switch, useLocation, useHistory } from "react-router-dom";
 import HomePage from "./screens/homePage";
 import ProductsPage from "./screens/productsPage";
 import UserPage from "./screens/userPage";
@@ -24,12 +23,16 @@ function App() {
   const location = useLocation();
   const history = useHistory();
 
-  const { authMember, setAuthMember } = useGlobals();
+  const { setAuthMember } = useGlobals();
 
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   /** Handlers */
   const handleSignupClose = () => setSignupOpen(false);

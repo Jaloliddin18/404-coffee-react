@@ -30,6 +30,7 @@ export default function Footer() {
           left: 0,
           top: 0,
           transform: "translateY(-50%)",
+          width: "180px",
           zIndex: 2,
         }}
       />
@@ -41,6 +42,7 @@ export default function Footer() {
           right: 0,
           top: 0,
           transform: "translateY(-50%)",
+          width: "180px",
           zIndex: 2,
         }}
       />
@@ -49,7 +51,7 @@ export default function Footer() {
           <Box className="footer-grid">
             {/* Brand Section */}
             <Box className="footer-brand">
-              <Box className="footer-brand-name">Bean Scene</Box>
+              <Box className="footer-brand-name">404 Coffee</Box>
               <Box className="footer-description">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -57,16 +59,16 @@ export default function Footer() {
                 of type and scrambled it to make a type specimen book.
               </Box>
               <Box className="social-icons">
-                <a href="#" aria-label="Facebook" className="social-link">
+                <a href="/" aria-label="Facebook" className="social-link">
                   <FacebookIcon />
                 </a>
-                <a href="#" aria-label="Instagram" className="social-link">
+                <a href="/" aria-label="Instagram" className="social-link">
                   <InstagramIcon />
                 </a>
-                <a href="#" aria-label="Twitter" className="social-link">
+                <a href="/" aria-label="Twitter" className="social-link">
                   <TwitterIcon />
                 </a>
-                <a href="#" aria-label="LinkedIn" className="social-link">
+                <a href="/" aria-label="LinkedIn" className="social-link">
                   <LinkedInIcon />
                 </a>
               </Box>
@@ -116,8 +118,7 @@ export default function Footer() {
               <Box className="contact-item">
                 <Box className="contact-label">Address:</Box>
                 <Box className="contact-value">
-                  Akshya Nagar 1st Block 1st Cross, Rammurthy nagar,
-                  Bangalore-560016
+                  Ziyolilar 49, Yakkasaray, Tashkent, Uzbekistan
                 </Box>
               </Box>
               <Box className="contact-item">
@@ -126,11 +127,11 @@ export default function Footer() {
               </Box>
               <Box className="contact-item">
                 <Box className="contact-label">Email:</Box>
-                <Box className="contact-value">beanscene@mail.com</Box>
+                <Box className="contact-value">404coffee@mail.com</Box>
               </Box>
               <Box className="contact-item">
                 <Box className="contact-label">Website:</Box>
-                <Box className="contact-value">www.beanscene.com</Box>
+                <Box className="contact-value">www.404coffee.com</Box>
               </Box>
             </Box>
           </Box>

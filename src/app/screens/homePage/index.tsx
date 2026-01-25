@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import DiscoverSection from "./DiscoverSection";
 import CoffeeStylesSection from "./CoffeeStylesSection";
 import WhyDifferentSection from "./WhyDifferentSection";
@@ -10,7 +10,6 @@ import { Dispatch } from "@reduxjs/toolkit";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
-import { ProductCollection } from "../../../lib/enums/product.enum";
 import "../../../css/home.css";
 import MemberService from "../../services/MemberService";
 import { Member } from "../../../lib/types/member";
@@ -23,9 +22,11 @@ const actionDispatch = (dispatch: Dispatch) => ({
 });
 
 export default function HomePage() {
-  // Selector: Store => Data
-  const { setPopularDishes, setNewDishes, setTopUsers } =
-    actionDispatch(useDispatch());
+  const dispatch = useDispatch();
+  const { setPopularDishes, setNewDishes, setTopUsers } = useMemo(
+    () => actionDispatch(dispatch),
+    [dispatch],
+  );
 
   useEffect(() => {
     // Backend server data request => Data
@@ -61,14 +62,60 @@ export default function HomePage() {
       .getTopUsers()
       .then((data) => setTopUsers(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [setNewDishes, setPopularDishes, setTopUsers]);
 
   return (
     <div className={"homepage"}>
       <DiscoverSection />
+      <img
+        alt=""
+        src="/img/coffee-blast-1.png"
+        style={{
+          position: "absolute",
+          left: -80,
+          top: 1220,
+          width: 478,
+          height: 261,
+          zIndex: 2,
+        }}
+      />
       <CoffeeStylesSection />
+      <img
+        alt=""
+        src="/img/coffee-blast-2.png"
+        style={{
+          position: "absolute",
+          right: 0,
+          top: 2090,
+          width: 300,
+          zIndex: 2,
+        }}
+      />
       <WhyDifferentSection />
       <AmazingMorningSection />
+      <img
+        src="/img/coffee-blast-3.png"
+        alt=""
+        style={{
+          position: "absolute",
+          right: 0,
+          top: 3840,
+          width: 300,
+          zIndex: 2,
+        }}
+      />
+      <img
+        src="/img/coffee-blast-4.png"
+        alt=""
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 4500,
+          width: 280,
+          zIndex: 2,
+        }}
+      />
+      s
       <TestimonialSection />
       <NewsletterSection />
     </div>
