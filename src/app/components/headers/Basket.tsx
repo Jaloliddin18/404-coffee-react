@@ -12,6 +12,7 @@ import { Messages, serverApi } from "../../../lib/config";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
+import { toastErrorHandling } from "../../../lib/toastAlert";
 
 interface BasketProps {
   cartItems: CartItem[];
@@ -28,7 +29,7 @@ export default function Basket(props: BasketProps) {
   const history = useHistory();
   const itemsPrice: number = cartItems.reduce(
     (a: number, c: CartItem) => a + c.quantity * c.price,
-    0
+    0,
   );
   const shippingCost: number = itemsPrice < 100 ? 5 : 0;
   const totalPrice = (itemsPrice + shippingCost).toFixed(1);
@@ -58,7 +59,7 @@ export default function Basket(props: BasketProps) {
       // Refresh via context
     } catch (err) {
       console.log(err);
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
 

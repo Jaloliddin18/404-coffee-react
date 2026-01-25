@@ -5,19 +5,19 @@ import { useGlobals } from "../../hooks/useGlobals";
 import { MemberUpdateInput } from "../../../lib/types/member";
 import { useState } from "react";
 import { T } from "../../../lib/types/common";
-import {
-  sweetErrorHandling,
-  sweetTopSmallSuccessAlert,
-} from "../../../lib/sweetAlert";
 import { Messages, serverApi } from "../../../lib/config";
 import MemberService from "../../services/MemberService";
+import {
+  toastErrorHandling,
+  toastTopSmallSuccessAlert,
+} from "../../../lib/toastAlert";
 
 export function Settings() {
   const { authMember, setAuthMember } = useGlobals();
   const [memberImage, setMemberImage] = useState<string>(
     authMember?.memberImage
       ? `${serverApi}/${authMember.memberImage}`
-      : "/icons/default-user.svg"
+      : "/icons/default-user.svg",
   );
   const [memberUpdateInput, setMemberUpdateInput] = useState<MemberUpdateInput>(
     {
@@ -26,7 +26,7 @@ export function Settings() {
       memberAddress: authMember?.memberAddress,
       memberDesc: authMember?.memberDesc,
       memberImage: authMember?.memberImage,
-    }
+    },
   );
 
   /** Handlers */
@@ -62,9 +62,9 @@ export function Settings() {
       const result = await member.updateMember(memberUpdateInput);
       setAuthMember(result);
 
-      await sweetTopSmallSuccessAlert("Modified Successfully", 700);
+      toastTopSmallSuccessAlert("Modified Successfully", 700);
     } catch (err) {
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
 
@@ -74,7 +74,7 @@ export function Settings() {
     const fileType = file.type,
       validateImageTypes = ["image/jpg", "image/png", "image/jpeg"];
     if (!validateImageTypes.includes(fileType)) {
-      sweetErrorHandling(Messages.error5).then();
+      toastErrorHandling(Messages.error5);
     } else {
       if (file) {
         memberUpdateInput.memberImage = file;

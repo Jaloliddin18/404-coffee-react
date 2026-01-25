@@ -25,11 +25,11 @@ import MemberService from "../../services/MemberService";
 import { serverApi } from "../../../lib/config";
 import { CartItem } from "../../../lib/types/search";
 import { useGlobals } from "../../hooks/useGlobals";
-import {
-  sweetErrorHandling,
-  sweetTopSuccessAlert,
-} from "../../../lib/sweetAlert";
 import { Messages } from "../../../lib/config";
+import {
+  toastErrorHandling,
+  toastTopSuccessAlert,
+} from "../../../lib/toastAlert";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
@@ -85,7 +85,7 @@ export default function ChosenProduct(props: ChosenProductProps) {
   const handleLikeProduct = async () => {
     try {
       if (!authMember) {
-        sweetErrorHandling(Messages.error1);
+        toastErrorHandling(Messages.error1);
         return;
       }
 
@@ -101,14 +101,14 @@ export default function ChosenProduct(props: ChosenProductProps) {
       // If count increased, we liked. If count decreased, we unliked.
       if (newLikeCount > previousLikeCount) {
         setIsLiked(true);
-        await sweetTopSuccessAlert("Added to favorites!", 1000);
+        await toastTopSuccessAlert("Added to favorites!", 1000);
       } else {
         setIsLiked(false);
-        await sweetTopSuccessAlert("Removed from favorites!", 1000);
+        await toastTopSuccessAlert("Removed from favorites!", 1000);
       }
     } catch (err) {
       console.log(err);
-      sweetErrorHandling(Messages.error1);
+      toastErrorHandling(Messages.error1);
     }
   };
 

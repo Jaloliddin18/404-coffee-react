@@ -27,9 +27,9 @@ import { T } from "../../../lib/types/common";
 import { Messages } from "../../../lib/config";
 import { LoginInput, MemberInput } from "../../../lib/types/member";
 import MemberService from "../../services/MemberService";
-import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
 import { useHistory } from "react-router-dom";
+import { toastErrorHandling } from "../../../lib/toastAlert";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -132,7 +132,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
     } catch (err) {
       console.log(err);
       handleSignupClose();
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
 
@@ -155,7 +155,7 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
     } catch (err) {
       console.log(err);
       handleLoginClose();
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
 

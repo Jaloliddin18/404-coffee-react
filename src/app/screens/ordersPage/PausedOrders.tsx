@@ -10,16 +10,16 @@ import { Product } from "../../../lib/types/product";
 import { Messages, serverApi } from "../../../lib/config";
 import { Order, OrderItem, OrderUpdateInput } from "../../../lib/types/orders";
 import { T } from "../../../lib/types/common";
-import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { useGlobals } from "../../hooks/useGlobals";
 import { OrderStatus } from "../../../lib/enums/order.enum";
 import OrderService from "../../services/OrderService";
+import { toastErrorHandling } from "../../../lib/toastAlert";
 
 /** REDUX SLICE & SELECTOR */
 
 const pausedOrdersRetriever = createSelector(
   retrievePausedOrders,
-  (pausedOrders) => ({ pausedOrders })
+  (pausedOrders) => ({ pausedOrders }),
 );
 
 interface PausedOrdersProps {
@@ -40,7 +40,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
         orderStatus: OrderStatus.DELETE,
       };
       const confirmation = window.confirm(
-        "Do you really want to delete the order?"
+        "Do you really want to delete the order?",
       );
       if (confirmation) {
         const order = new OrderService();
@@ -49,7 +49,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
       }
     } catch (err) {
       console.log(err);
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
 
@@ -63,7 +63,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
         orderStatus: OrderStatus.PROCESS,
       };
       const confirmation = window.confirm(
-        "Do you want to proceed with payment?"
+        "Do you want to proceed with payment?",
       );
       if (confirmation) {
         const order = new OrderService();
@@ -73,7 +73,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
       }
     } catch (err) {
       console.log(err);
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
 
@@ -86,7 +86,7 @@ export default function PausedOrders(props: PausedOrdersProps) {
               <Box className={"order-box-scroll"}>
                 {order?.orderItems?.map((item: OrderItem) => {
                   const product: Product = order.productData.filter(
-                    (ele: Product) => item.productId === ele._id
+                    (ele: Product) => item.productId === ele._id,
                   )[0];
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (

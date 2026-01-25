@@ -11,10 +11,11 @@ import HelpPage from "./screens/helpPage";
 import useBasket from "./hooks/useBasket";
 import AuthenticationModal from "./components/auth";
 import { ChatWidget } from "./components/chat";
-import { sweetErrorHandling, sweetTopSuccessAlert } from "../lib/sweetAlert";
 import { Messages } from "../lib/config";
 import MemberService from "./services/MemberService";
 import { useGlobals } from "./hooks/useGlobals";
+import { Toaster } from "react-hot-toast";
+import { toastErrorHandling, toastTopSuccessAlert } from "../lib/toastAlert";
 import "../css/app.css";
 import "../css/navbar.css";
 import "../css/footer.css";
@@ -46,17 +47,18 @@ function App() {
       const member = new MemberService();
       await member.logout();
 
-      await sweetTopSuccessAlert("Success", 700);
+      toastTopSuccessAlert("Success", 700);
       setAuthMember(null);
       history.push("/");
     } catch (err) {
       console.log(err);
-      sweetErrorHandling(Messages.error1);
+      toastErrorHandling(Messages.error1);
     }
   };
 
   return (
     <>
+      <Toaster position="top-center" />
       {location.pathname === "/" ? (
         <HomeNavbar
           cartItems={cartItems}

@@ -12,9 +12,9 @@ import { Messages, serverApi } from "../../../lib/config";
 import { Order, OrderItem, OrderUpdateInput } from "../../../lib/types/orders";
 import { useGlobals } from "../../hooks/useGlobals";
 import OrderService from "../../services/OrderService";
-import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { T } from "../../../lib/types/common";
 import { OrderStatus } from "../../../lib/enums/order.enum";
+import { toastErrorHandling } from "../../../lib/toastAlert";
 
 /** REDUX SLICE & SELECTOR */
 
@@ -24,7 +24,7 @@ interface PausedOrdersProps {
 
 const processOrdersRetriever = createSelector(
   retrieveProcessOrders,
-  (processOrders) => ({ processOrders })
+  (processOrders) => ({ processOrders }),
 );
 
 export default function ProcessOrders(props: PausedOrdersProps) {
@@ -52,7 +52,7 @@ export default function ProcessOrders(props: PausedOrdersProps) {
       }
     } catch (err) {
       console.log(err);
-      sweetErrorHandling(err).then();
+      toastErrorHandling(err);
     }
   };
   return (
@@ -64,7 +64,7 @@ export default function ProcessOrders(props: PausedOrdersProps) {
               <Box className={"order-box-scroll"}>
                 {order?.orderItems?.map((item: OrderItem) => {
                   const product: Product = order.productData.filter(
-                    (ele: Product) => item.productId === ele._id
+                    (ele: Product) => item.productId === ele._id,
                   )[0];
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   return (
