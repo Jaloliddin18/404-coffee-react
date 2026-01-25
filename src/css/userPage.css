@@ -368,73 +368,105 @@
 }
 
 .my-favorites-section .favorite-card {
-  width: 200px;
+  width: 280px;
+  min-height: 388px;
+  background: #fff9f1;
+  border: 1px solid rgba(249, 192, 106, 0.42);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 24px;
   cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
+  transition: all 0.3s ease;
 }
 
 .my-favorites-section .favorite-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.my-favorites-section .favorite-card-img {
-  background-size: cover;
-  background-position: center;
-  height: 150px;
-  position: relative;
+.my-favorites-section .favorite-image {
+  width: 280px;
+  height: 222px;
+  object-fit: cover;
+  display: block;
 }
 
-.my-favorites-section .favorite-card-size {
+.my-favorites-section .favorite-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 20px 0;
+  text-align: center;
+  flex: 1;
+  width: 100%;
+}
+
+.my-favorites-section .favorite-views {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
+  right: 10px;
+  top: 200px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.5);
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: 12px;
 }
 
-.my-favorites-section .favorite-view-btn {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  min-width: auto;
-  padding: 4px;
-}
-
-.my-favorites-section .favorite-card-desc {
-  padding: 12px;
-  background: white;
-}
-
-.my-favorites-section .favorite-card-title {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 8px;
+.my-favorites-section .favorite-name {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #603809;
+  line-height: normal;
+  margin-bottom: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
 }
 
-.my-favorites-section .favorite-card-price {
+.my-favorites-section .favorite-description {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #1e1e1e;
+  line-height: normal;
+  margin-bottom: 12px;
+}
+
+.my-favorites-section .favorite-footer {
   display: flex;
   align-items: center;
-  gap: 4px;
-  color: #d4a574;
-  font-weight: bold;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
 }
 
-.my-favorites-section .favorite-icon {
+.my-favorites-section .favorite-price {
+  font-family: "Playfair Display", serif;
   font-size: 18px;
-  color: #d32f2f;
-  margin-left: 80px;
+  font-weight: 700;
+  color: #603809;
+  line-height: normal;
+}
+
+.my-favorites-section .favorite-likes {
+  display: flex;
+  align-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #707070;
+}
+
+/* Remove old styles references */
+.my-favorites-section .favorite-card-img {
+  display: none;
 }
 
 .my-favorites-section .no-favorites {

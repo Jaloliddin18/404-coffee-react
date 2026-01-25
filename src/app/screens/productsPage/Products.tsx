@@ -13,17 +13,16 @@ import {
   MenuItem,
   MenuList,
 } from "@mui/material";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Badge from "@mui/material/Badge";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import SearchIcon from "@mui/icons-material/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { createSelector, Dispatch } from "@reduxjs/toolkit";
+import { createSelector } from "@reduxjs/toolkit";
 import { Product, ProductInquiry } from "../../../lib/types/product";
 import { setProducts } from "./slice";
 import { retrieveProducts } from "./selector";
@@ -37,10 +36,6 @@ import { useHistory } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
 import Events from "./Events";
 
-const actionDispatch = (dispatch: Dispatch) => ({
-  setProducts: (data: Product[]) => dispatch(setProducts(data)),
-});
-
 const productsRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
@@ -51,7 +46,7 @@ interface ProductsProps {
 
 export default function Products(props: ProductsProps) {
   const { onAdd } = props;
-  const { setProducts } = actionDispatch(useDispatch());
+  const dispatch = useDispatch();
   const { products } = useSelector(productsRetriever);
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
     page: 1,
@@ -79,16 +74,18 @@ export default function Products(props: ProductsProps) {
     const product = new ProductService();
     product
       .getProducts(productSearch)
-      .then((data) => setProducts(data))
+      .then((data) => dispatch(setProducts(data)))
       .catch((err) => console.log(err));
-  }, [productSearch, setProducts]);
+  }, [productSearch, dispatch]);
 
   useEffect(() => {
     if (searchText === "") {
-      productSearch.search = "";
-      setProductSearch({ ...productSearch });
+      setProductSearch((prev) => {
+        if (prev.search === "") return prev;
+        return { ...prev, search: "" };
+      });
     }
-  }, [searchText, productSearch]);
+  }, [searchText]);
 
   /** Handlers */
   const searchCollectionHandler = (collection: ProductCollection) => {
@@ -373,61 +370,63 @@ export default function Products(props: ProductsProps) {
               {products.length !== 0 ? (
                 products.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  const sizeVolume = product.productSize + " size";
                   return (
                     <Stack
                       key={product._id}
                       className={"product-card"}
                       onClick={() => chooseDishHandler(product._id)}
                     >
-                      <Stack
-                        className={"product-img"}
-                        sx={{ backgroundImage: `url(${imagePath})` }}
-                      >
-                        <div className={"product-sale"}>{sizeVolume}</div>
-                        <Button
-                          className={"shop-btn"}
-                          onClick={(e) => {
-                            onAdd({
-                              _id: product._id,
-                              quantity: 1,
-                              name: product.productName,
-                              price: product.productPrice,
-                              image: product.productImages[0],
-                            });
-                            e.stopPropagation();
-                            // when shop button pressed stops getting inside the item
-                          }}
-                        >
-                          <img
-                            src={"/icons/shopping-cart.svg"}
-                            style={{ display: "flex" }}
-                            alt="shopping cart"
-                          />
-                        </Button>
-                        <Button className="view-btn" sx={{ right: "36px" }}>
-                          <Badge
-                            badgeContent={product.productViews}
-                            color="secondary"
-                          >
-                            <RemoveRedEyeIcon
-                              sx={{
-                                color:
-                                  product.productViews === 0 ? "gray" : "white",
-                              }}
+                      <Box className={"product-image-wrapper"}>
+                        <img
+                          src={imagePath}
+                          alt={product.productName}
+                          className={"product-image"}
+                        />
+                        <Box className="product-overlay">
+                          <Box className="product-likes">
+                            <FavoriteIcon
+                              sx={{ color: "#ffffff", marginRight: "5px" }}
                             />
-                          </Badge>
-                        </Button>
-                      </Stack>
-                      <Box className={"product-desc"}>
-                        <span className={"product-title"}>
-                          {product.productName}
-                        </span>
-                        <div className={"product-desc-price"}>
-                          <MonetizationOnIcon />
-                          {product.productPrice}
-                        </div>
+                            {product.productLikes}
+                          </Box>
+                          <Box className="product-views">
+                            {product.productViews}
+                            <RemoveRedEyeIcon
+                              sx={{ color: "#ffffff", marginLeft: "5px" }}
+                            />
+                          </Box>
+                        </Box>
                       </Box>
+
+                      <Box className={"product-info"}>
+                        <Box className={"product-name"}>
+                          {product.productName}
+                        </Box>
+                        <Box className={"product-description"}>
+                          {product.productDesc
+                            ? product.productDesc
+                            : `${product.productSize} size`}
+                        </Box>
+                        <Box className={"product-price"}>
+                          ${product.productPrice}
+                        </Box>
+                      </Box>
+
+                      <Button
+                        className={"product-order-button"}
+                        onClick={(e) => {
+                          onAdd({
+                            _id: product._id,
+                            quantity: 1,
+                            name: product.productName,
+                            price: product.productPrice,
+                            image: product.productImages[0],
+                          });
+                          e.stopPropagation();
+                        }}
+                      >
+                        Order Now
+                      </Button>
                     </Stack>
                   );
                 })

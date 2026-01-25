@@ -1,8 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import { Box, Button, Stack } from "@mui/material";
-import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import { Box, Stack } from "@mui/material";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import Badge from "@mui/material/Badge";
 import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -46,7 +44,7 @@ export function MyFavorites() {
         setTotalPages(Math.ceil(total / limit) || 1);
       })
       .catch((err) => console.log(err));
-  }, [currentPage]);
+  }, [currentPage, setFavoriteProducts]);
 
   const paginationHandler = (e: ChangeEvent<any>, value: number) => {
     setCurrentPage(value);
@@ -64,41 +62,43 @@ export function MyFavorites() {
           {favoriteProducts.length !== 0 ? (
             favoriteProducts.map((product: Product) => {
               const imagePath = `${serverApi}/${product.productImages[0]}`;
-              const sizeVolume = product.productSize + " size";
               return (
                 <Stack
                   key={product._id}
                   className="favorite-card"
                   onClick={() => chooseDishHandler(product._id)}
                 >
-                  <Stack
-                    className="favorite-card-img"
-                    style={{ backgroundImage: `url(${imagePath})` }}
-                  >
-                    <Box className="favorite-card-size">{sizeVolume}</Box>
-                    <Button className="favorite-view-btn">
-                      <Badge
-                        badgeContent={product.productViews}
-                        color="secondary"
-                      >
-                        <RemoveRedEyeIcon
-                          sx={{
-                            color:
-                              product.productViews === 0 ? "white" : "gray",
-                          }}
-                        />
-                      </Badge>
-                    </Button>
-                  </Stack>
-                  <Box className="favorite-card-desc">
-                    <Box className="favorite-card-title">
-                      {product.productName}
+                  <img
+                    src={imagePath}
+                    alt={product.productName}
+                    className="favorite-image"
+                  />
+
+                  <Box className="favorite-info">
+                    <Box className="favorite-views">
+                      {product.productViews}
+                      <RemoveRedEyeIcon
+                        sx={{ fontSize: 20, marginLeft: "5px" }}
+                      />
                     </Box>
-                    <Box className="favorite-card-price">
-                      <MonetizationOnIcon sx={{ fontSize: "18px" }} />
-                      {product.productPrice}
-                      <FavoriteIcon className="favorite-icon" />
-                      {product.productLikes}
+
+                    <Box className="favorite-name">{product.productName}</Box>
+                    <Box className="favorite-description">
+                      {product.productDesc
+                        ? product.productDesc
+                        : `${product.productSize} size`}
+                    </Box>
+
+                    <Box className="favorite-footer">
+                      <Box className="favorite-price">
+                        ${product.productPrice}
+                      </Box>
+                      <Box className="favorite-likes">
+                        <FavoriteIcon
+                          style={{ color: "red", fontSize: 18, marginRight: 4 }}
+                        />
+                        {product.productLikes}
+                      </Box>
                     </Box>
                   </Box>
                 </Stack>
