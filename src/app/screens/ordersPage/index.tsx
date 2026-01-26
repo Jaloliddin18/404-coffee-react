@@ -53,13 +53,8 @@ export default function OrdersPage() {
       .getMyOrders({ ...orderInquiry, orderStatus: OrderStatus.FINISH })
       .then((data) => setFinishedOrders(data))
       .catch((err) => console.log(err));
-  }, [
-    orderInquiry,
-    orderBuilder,
-    setFinishedOrders,
-    setPausedOrders,
-    setProcessOrders,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [orderInquiry, orderBuilder]);
 
   /** Handlers */
   return (

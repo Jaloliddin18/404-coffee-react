@@ -335,6 +335,14 @@ const ChatWidget: React.FC = () => {
       return;
     }
     setChatMode(mode);
+
+    // Always emit user:join when selecting admin mode to get/create room and load message history
+    if (mode === "admin" && socket) {
+      socket.emit("user:join", {
+        memberId: authMember?._id,
+        memberNick: authMember?.memberNick,
+      });
+    }
   };
 
   const getNotificationDisplay = () => {

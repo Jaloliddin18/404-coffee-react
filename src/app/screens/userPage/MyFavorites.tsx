@@ -44,7 +44,8 @@ export function MyFavorites() {
         setTotalPages(Math.ceil(total / limit) || 1);
       })
       .catch((err) => console.log(err));
-  }, [currentPage, setFavoriteProducts]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
 
   const paginationHandler = (e: ChangeEvent<any>, value: number) => {
     setCurrentPage(value);

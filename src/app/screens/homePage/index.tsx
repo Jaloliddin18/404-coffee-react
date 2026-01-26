@@ -7,23 +7,19 @@ import TestimonialSection from "./TestimonialSection";
 import NewsletterSection from "./NewsletterSection";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
+import { setPopularDishes } from "./slice";
 import { Product } from "../../../lib/types/product";
 import ProductService from "../../services/ProductService";
 import "../../../css/home.css";
-import MemberService from "../../services/MemberService";
-import { Member } from "../../../lib/types/member";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
   setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
-  setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
-  setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
 });
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const { setPopularDishes, setNewDishes, setTopUsers } = useMemo(
+  const { setPopularDishes } = useMemo(
     () => actionDispatch(dispatch),
     [dispatch],
   );
@@ -37,32 +33,14 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "productViews",
-        // Removed productCollection filter to get both HOT_COFFEE and ICED_COFFEE
       })
       .then((data) => {
         console.log("data passed here", data);
         setPopularDishes(data);
       })
       .catch((err) => console.log(err));
-
-    product
-      .getProducts({
-        page: 1,
-        limit: 4,
-        order: "createdAt",
-        // productCollection: ProductCollection.DISH,
-      })
-      .then((data) => {
-        setNewDishes(data);
-      })
-      .catch((err) => console.log(err));
-
-    const member = new MemberService();
-    member
-      .getTopUsers()
-      .then((data) => setTopUsers(data))
-      .catch((err) => console.log(err));
-  }, [setNewDishes, setPopularDishes, setTopUsers]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className={"homepage"}>
