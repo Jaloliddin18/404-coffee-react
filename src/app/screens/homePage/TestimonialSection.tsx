@@ -1,48 +1,45 @@
 import React, { useState } from "react";
 import { Box, Container, Stack, IconButton } from "@mui/material";
-import { useSelector } from "react-redux";
-import { createSelector } from "reselect";
-import { retrieveTopUsers } from "./selector";
-import { serverApi } from "../../../lib/config";
-import { Member } from "../../../lib/types/member";
-
-const topUsersRetriever = createSelector(retrieveTopUsers, (topUsers) => ({
-  topUsers,
-}));
 
 const testimonials = [
   {
     id: 1,
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset.....",
-    author: "Jonny Thomas",
-    title: "Project Manager",
-    image: "/img/customer-jonny-thomas.jpg",
+    text: "You will only know the taste of fresh coffee once you taste this coffee shop coffee. It was amazing to watch how they brewed their coffee. You will become hooked after just one cup. ",
+    author: "Martin",
+    title: "Coffee Enthusiast",
+    image: "/img/martin.webp",
   },
   {
     id: 2,
     text: "The quality of coffee here is absolutely outstanding. Every cup is crafted with care and attention to detail. I've become a regular customer and highly recommend this place to anyone who appreciates great coffee.",
-    author: "Sarah Johnson",
-    title: "Coffee Enthusiast",
-    image: "/icons/default-user.svg",
+    author: "Justin",
+    title: "Project Manager",
+    image: "/img/justin.webp",
   },
   {
     id: 3,
     text: "Best coffee experience I've had in years. The atmosphere is welcoming, the staff is friendly, and most importantly, the coffee is exceptional. Worth every penny!",
-    author: "Michael Chen",
-    title: "Business Owner",
-    image: "/icons/default-user.svg",
+    author: "Chico",
+    title: "Model",
+    image: "/img/chico.jpg",
   },
   {
     id: 4,
     text: "I visit Bean Scene every morning before work. The consistent quality and friendly staff keep me coming back. This is my go-to place for the perfect start to my day.",
-    author: "Emily Davis",
+    author: "John",
     title: "Marketing Manager",
+    image: "/icons/default-user.svg",
+  },
+  {
+    id: 5,
+    text: "My preferred coffee shop. A great espresso is something that everyone can appreciate! They are experts in coffee brewing- Like all of their coffee; it is also pure and free of additional toxins. It's unbeatable. Enjoy yourself!",
+    author: "James",
+    title: "Mentor",
     image: "/icons/default-user.svg",
   },
 ];
 
 export default function TestimonialSection() {
-  const { topUsers } = useSelector(topUsersRetriever);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
