@@ -26,10 +26,12 @@ export default function FinishedOrders() {
             <Box key={order._id} className={"order-main-box finished"}>
               <Box className={"order-box-scroll"}>
                 {order?.orderItems?.map((item: OrderItem) => {
-                  const product: Product = order.productData.filter(
-                    (ele: Product) => item.productId === ele._id,
-                  )[0];
-                  const imagePath = `${serverApi}/${product.productImages[0]}`;
+                  const product: Product | undefined =
+                    order.productData?.filter(
+                      (ele: Product) => item.productId === ele._id,
+                    )[0];
+                  if (!product) return null;
+                  const imagePath = `${serverApi}/${product.productImages?.[0] || ""}`;
                   return (
                     <Box key={item._id} className={"orders-name-price"}>
                       <img
