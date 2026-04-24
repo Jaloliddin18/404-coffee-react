@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 import { useGlobals } from "../../hooks/useGlobals";
 import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member.enum";
+// @ts-expect-error CSS side-effect import is resolved by bundler
 import "../../../css/userPage.css";
 
 export default function UserPage() {
